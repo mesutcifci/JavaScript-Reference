@@ -27,7 +27,7 @@ function map(func, arr) {
     return result;
 }
 
-let multiply = function (number) { return number * 2 };
+let multiply = function (number) { return number * 2; };
 let numbers = [10, 20, 30, 40, 50];
 
 console.log(map(multiply, numbers));
@@ -38,9 +38,18 @@ console.log("-------------------------");
 
 console.log(sayMyName("Mesut"));
 function sayMyName(name) { return name; }
-// let sayMyName = function(name) {return name;} 
-// ReferenceError: can't access lexical declaration `sayMyName' before initialization
 
+/* 
+console.log(sayMyName2("Elif"))
+let sayMyName2 = function(name) {return name;};  
+// ReferenceError: can't access lexical declaration `sayMyName' before initialization
+*/
+
+/*
+console.log(sayMyName3('Minik'));
+var sayMyName3 = function(name) {return name;}
+// sayMyName3 is not a function
+*/
 console.log("-------------------------");
 
 /* nested function */
@@ -89,7 +98,7 @@ console.log(myConcat("-", "ali", "veli", "49", "50")); // ali-veli-49-50
 
 function ask(question, yes, no) {
     if (confirm(question))
-        yes()
+        yes();
     else
         no();
 }
@@ -104,9 +113,9 @@ function no() {
 
 ask("Do you accept?", yes, no);
 
-/* 
+/*
 ask("Do you accept?", // argument question
-    function () { alert("You accepted");  }, // argument yes
+    () => { alert("You accepted");  }, // argument yes
     function () { alert("You did not accept") } // argument no
 );
 */
