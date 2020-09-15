@@ -4,7 +4,7 @@ const myFirstSymbol = Symbol();
 const foo = Symbol('description');
 const foo2 = Symbol('description');
 
-console.log(foo)              // Symbol(description);
+console.log(foo);              // Symbol(description);
 console.log(foo.description); // // description
 
 console.log(foo == foo2);     // false

@@ -65,6 +65,7 @@ animal_2.displayType(); // cat
 console.log("\n");
 
 /* Computed properties */
+
 let fruit = prompt("Which fruit to buy?", "apple");
 
 let bag = {
@@ -108,8 +109,11 @@ myCat.sayMeow();
 // method shorthand 
 let city = {
     longMethod: function () { console.log(".......") },
-    shortMethod() { console.log(".......") }
+    shortMethod() { console.log(".......") },
+    externalMethod: externalMethod(),
 }
+
+function externalMethod() {};
 
 console.log("\n");
 

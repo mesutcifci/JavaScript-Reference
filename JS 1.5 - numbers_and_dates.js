@@ -59,6 +59,15 @@ console.log(number_1.toFixed(4)); // 123.4570
 
 console.log(typeof (number_1.toFixed())); // string
 
+/* !!!!! 
+0.1 + 0.2 ≠ 0.3  
+
+alert( 1.35.toFixed(1) ); // 1.4
+alert( 6.35.toFixed(1) ); // 6.3
+
+
+!!!!! */
+
 /* toPrecision */
 
 console.log("--------------------------");
@@ -185,6 +194,7 @@ console.log(catDay.toJSON());       // 2222-12-19T05:07:06.400Z
 
 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timezone: 'UTC'};
 
+console.log(catDay.toDateString()); // 12.19.2222
 console.log(catDay.toLocaleDateString('tr-TR')); // 19.12.2222
 console.log(catDay.toLocaleDateString('tr-TR', options)); // 19 Aralık 2222 Perşembe
 
