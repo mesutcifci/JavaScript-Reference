@@ -3,22 +3,29 @@
 let number = 1000000000;
 
 console.log(1e9 == number) // true
-console.log(2.15e3 == (2.15  * 1000)); // true
+console.log(2.15e3 == (2.15 * 1000)); // true
 console.log(4e-4 == 0.0004) // true
 
-console.log("--------------------------");
 
-/* num.toString(base) */
+console.log("\n");
+console.log("***************************************************");
+console.log("*                   toString                      *");
+console.log("***************************************************");
+console.log("\n");
+
 
 number = 255;
-
 console.log(number.toString(16)); // ff
 console.log(number.toString(2));  // 11111111
 console.log(25578782142..toString(36)); // br0y2m6
 
-console.log("--------------------------");
 
-/* Parse */
+console.log("\n");
+console.log("***************************************************");
+console.log("*                   parseFloat                    *");
+console.log("***************************************************");
+console.log("\n");
+
 
 let text_1 = "12.53aadd";
 let text_2 = "aadd12.53";
@@ -28,18 +35,26 @@ console.log(Number.parseFloat("12.53", "aa")); //12.53
 console.log(Number.parseFloat("aa", 12.53)); // NaN
 console.log(Number.parseInt(text_1)); // 12
 
-console.log("--------------------------");
 
-/* isInteger */
+console.log("\n");
+console.log("***************************************************");
+console.log("*                   isInteger                     *");
+console.log("***************************************************");
+console.log("\n");
+
 
 console.log(Number.isInteger(5));    // true
 console.log(Number.isInteger(5 / 2));  // false
 console.log(Number.isInteger(5.0));  // true
 console.log(Number.isInteger("10")); // false
 
-console.log("--------------------------");
 
-/* toFixed */
+console.log("\n");
+console.log("***************************************************");
+console.log("*                   toFixed                       *");
+console.log("***************************************************");
+console.log("\n");
+
 
 let number_1 = 123.457;
 let number_2 = 123.447;
@@ -65,12 +80,15 @@ console.log(typeof (number_1.toFixed())); // string
 alert( 1.35.toFixed(1) ); // 1.4
 alert( 6.35.toFixed(1) ); // 6.3
 
-
 !!!!! */
 
-/* toPrecision */
 
-console.log("--------------------------");
+console.log("\n");
+console.log("***************************************************");
+console.log("*                   toPresicion                   *");
+console.log("***************************************************");
+console.log("\n");
+
 
 console.log(number_1.toPrecision());  // 123.457
 
@@ -86,9 +104,13 @@ console.log(number_1.toPrecision(4)); // 123.5
 
 console.log(typeof (number_1.toPrecision())); // string 
 
-/* Math */
 
-console.log("--------------------------");
+console.log("\n");
+console.log("***************************************************");
+console.log("*                   Math                          *");
+console.log("***************************************************");
+console.log("\n");
+
 
 console.log(Math.abs(-555)); // 555
 console.log(Math.pow(5, 3));  // 125
@@ -113,9 +135,13 @@ console.log(Math.sqrt(36)); // 6
 console.log(Math.cbrt(512)) // 8
 console.log(Math.hypot(6, 8)); // 10
 
-/* Date Constructor*/
 
-console.log("--------------------------");
+console.log("\n");
+console.log("***************************************************");
+console.log("*                   Date Constructor              *");
+console.log("***************************************************");
+console.log("\n");
+
 
 let date_1 = new Date();
 console.log(date_1); // returns current date
@@ -132,12 +158,16 @@ console.log(date_4); // Fri Dec 01 1995 00:00:00 GMT+0200 (GMT+03:00)
 
 let date_5 = new Date("");
 
-console.log("--------------------------");
 
-/* Date.parse - Date.now - Date.UTC*/
+console.log("\n");
+console.log("***************************************************");
+console.log("*         Date.parse - Date.now - Date.UTC        *");
+console.log("***************************************************");
+console.log("\n");
+
 
 // returns the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC.
-console.log(Date.now()); 
+console.log(Date.now());
 
 const theTime = Date.parse("01 jan 1970 00:00:01 GMT");
 console.log(theTime); // 1000
@@ -145,9 +175,15 @@ console.log(theTime); // 1000
 const utcTime = new Date(Date.UTC(1995, 11)); // Fri Dec 01 1995 02:00:00 GMT+0200 (GMT+03:00)
 console.log(utcTime);
 
-console.log("--------------------------");
 
-// getFullYear - getMonth - getDate - getDay - getHours - getMinutes - getSeconds - getMilliSeconds 
+console.log("\n");
+console.log("***************************************************");
+console.log("*      getFullYear  - getMonth - getDate          *")
+console.log("*       getDay - getHours - getMinutes            *");
+console.log("*        getSeconds - getMilliSeconds             *");
+console.log("***************************************************");
+console.log("\n");
+
 // Also set merhods available 
 
 // let birthday = new Date("August 11, 2011 08:16:24:600"); invalid format(also valid without ms)
@@ -182,17 +218,23 @@ console.log(dd); // Thu Jan 01 1970 02:00:00 GMT+0200 (GMT+03:00)
 dd = new Date(Date.now());
 console.log(dd); // Sat Sep 12 2020 13:30:58 GMT+0300 (GMT+03:00)
 
-console.log("--------------------------");
 
-// toDateString - toISOString -toJSON - toLocaleDateString - toLocaleString - toLocaleTimeString
-// toString - toTimeString
+console.log("\n");
+console.log("***************************************************");
+console.log("*     toDateString - toISOString -toJSON          *");
+console.log("*    toLocaleDateString  -  toLocaleString        *");
+console.log("*   toLocaleTimeString - toString - toTimeString  *");
+console.log("***************************************************");
+console.log("\n");
+
+
 let catDay = new Date(2222, 11, 19, 8, 7, 6, 400);
 
 console.log(catDay.toDateString()); // Thu Dec 19 2222
 console.log(catDay.toISOString());  // 2222-12-19T05:07:06.400Z
 console.log(catDay.toJSON());       // 2222-12-19T05:07:06.400Z
 
-const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timezone: 'UTC'};
+const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timezone: 'UTC' };
 
 console.log(catDay.toDateString()); // 12.19.2222
 console.log(catDay.toLocaleDateString('tr-TR')); // 19.12.2222
@@ -209,9 +251,13 @@ console.log(catDay.toLocaleTimeString('tr-TR', options)); // 19 Aralık 2222 Per
 console.log(catDay.toString()); // Thu Dec 19 2222 08:07:06 GMT+0300 (GMT+03:00)
 console.log(catDay.toTimeString()); // 08:07:06 GMT+0300 (GMT+03:00)
 
-console.log("--------------------------");
 
-// valueOf - Date()[Symbol.toPrimitive](hint);
+console.log("\n");
+console.log("***************************************************");
+console.log("*   valueOf - Date()[Symbol.toPrimitive](hint)    *");
+console.log("***************************************************");
+console.log("\n");
+
 
 console.log(catDay.valueOf()); // 7982773626400
 
