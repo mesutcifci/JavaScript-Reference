@@ -85,24 +85,28 @@ alert( 6.35.toFixed(1) ); // 6.3
 
 console.log("\n");
 console.log("***************************************************");
-console.log("*                   toPresicion                   *");
+console.log("*                   toPrecision                   *");
 console.log("***************************************************");
 console.log("\n");
 
+let n = 1;
+console.log(n.toPrecision(1)); // 1
+console.log(n.toPrecision(2)); // 1.0
 
-console.log(number_1.toPrecision());  // 123.457
+n = 12;
+console.log(n.toPrecision(1)); // 1e+1
 
-console.log(number_1.toPrecision(1)); // 1e+2
-console.log(number_2.toPrecision(1))  // 1e+2
+n = 123;
+console.log(n.toPrecision(1)); // 1e+2
+console.log(n.toPrecision(2)); // 1.2e + 2
 
-console.log(number_1.toPrecision(2)); // 1.2e+2
-console.log(number_2.toPrecision(2)); // 1.2e+2
-console.log(number_3.toPrecision(2)); // 1.2e+2
+n = 1234;
+console.log(n.toPrecision(3)); // 1.2e + 3  
 
-console.log(number_1.toPrecision(3)); // 123
-console.log(number_1.toPrecision(4)); // 123.5
+n = 123.45;
+console.log(n.toPrecision(1)); // 1e+2 
 
-console.log(typeof (number_1.toPrecision())); // string 
+console.log(typeof (n.toPrecision())); // string 
 
 
 console.log("\n");
@@ -146,7 +150,7 @@ console.log("\n");
 let date_1 = new Date();
 console.log(date_1); // returns current date
 
-// year - month - day - hour -second - msecond
+// year - month - day - hour - minute - second - msecond
 let date_2 = new Date(2010, 5, 24, 13, 42, 27, 56);
 console.log(date_2); // Thu Jun 24 2010 13:42:27 GMT+0300 (GMT+03:00)
 
@@ -157,6 +161,7 @@ let date_4 = new Date(1995, 11);
 console.log(date_4); // Fri Dec 01 1995 00:00:00 GMT+0200 (GMT+03:00)
 
 let date_5 = new Date("");
+console.log(date_5);
 
 
 console.log("\n");
@@ -194,9 +199,11 @@ let birthday = new Date(2011, 7, 11, 8, 16, 24, 500);
 console.log(birthday.getFullYear()); // 2011
 console.log(birthday.getMonth());    // 7
 
+console.log("\n");
 console.log(birthday.getDate()); // 11
 console.log(birthday.getDay());  // 0 (meaning sunday)
 
+console.log("\n");
 console.log(birthday.getHours());    // 8
 console.log(birthday.getMinutes());  // 16
 console.log(birthday.getSeconds());  // 24
@@ -236,18 +243,22 @@ console.log(catDay.toJSON());       // 2222-12-19T05:07:06.400Z
 
 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timezone: 'UTC' };
 
-console.log(catDay.toDateString()); // 12.19.2222
+console.log("\n");
+console.log(catDay.toDateString()); // Thu Dec 19 2222
 console.log(catDay.toLocaleDateString('tr-TR')); // 19.12.2222
 console.log(catDay.toLocaleDateString('tr-TR', options)); // 19 Aralık 2222 Perşembe
 
+console.log("\n");
 console.log(catDay.toLocaleString()); // 12/19/2222, 8:07:06 AM
 console.log(catDay.toLocaleString('tr-TR')); // 19.12.2222 08:07:06
 console.log(catDay.toLocaleString('tr-TR', options)); // 19 Aralık 2222 Perşembe
 
+console.log("\n");
 console.log(catDay.toLocaleTimeString()); // 8:07:06 AM
 console.log(catDay.toLocaleTimeString('tr-TR')); // 08:07:06
 console.log(catDay.toLocaleTimeString('tr-TR', options)); // 19 Aralık 2222 Perşembe 08:07:06
 
+console.log("\n");
 console.log(catDay.toString()); // Thu Dec 19 2222 08:07:06 GMT+0300 (GMT+03:00)
 console.log(catDay.toTimeString()); // 08:07:06 GMT+0300 (GMT+03:00)
 

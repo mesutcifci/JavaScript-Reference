@@ -46,9 +46,16 @@ let text_2 = "🌃";
 
 console.log(text_2.charCodeAt(0));  // 55356
 console.log(text_2.codePointAt(0)); // 127747
-console.log(text_2.charCodeAt(0).toString(16));  // d83c
-console.log(text_2.codePointAt(0).toString(16)); // 1f303
 
+console.log("\n");
+console.log(text_2.charCodeAt(0).toString(16));  // d83c
+console.log(text_2.charCodeAt(1).toString(16));  // df03
+
+console.log("\n");
+console.log(text_2.codePointAt(0).toString(16)); // 1f303
+console.log(text_2.codePointAt(1).toString(16)); // df03
+
+console.log("\n");
 console.log(String.fromCodePoint(text_2.charCodeAt(0)));    // �
 console.log(String.fromCodePoint(text_2.codePointAt(0)));  // 🌃
 
@@ -75,9 +82,10 @@ console.log("\n");
 
 text = "Hello, World";
 
-console.log(text.startsWith('Hel'));    // true
+console.log(text.startsWith('Hel'));   // true
 console.log(text.startsWith('Wo', 7)); // true
 
+console.log("\n");
 console.log(text.endsWith('ld'));    // true
 console.log(text.endsWith('Wo', 9)); // true
 
@@ -106,21 +114,21 @@ console.log("\n");
 
 text = "Hello, World";
 
-console.log(text.indexOf('o'));     // 4
-console.log(text.indexOf('o', -4)); // 4
-console.log(text.indexOf('o', 55)); // -1
-console.log(text.indexOf('o', 9));  // -1
-console.log(text.indexOf('O'));     // -1
+console.log(text.indexOf('o'));      // 4
+console.log(text.indexOf('o', -44)); // 4
+console.log(text.indexOf('o', 55));  // -1
+console.log(text.indexOf('o', 9));   // -1
+console.log(text.indexOf('O'));      // -1
 console.log("\n");
 
-console.log(text.indexOf(''));    // 0
-console.log(text.indexOf('', 0)); // 0
-console.log(text.indexOf('', 3)); // 3
-console.log("\n");
+console.log(text.indexOf(''));      // 0
+console.log(text.indexOf('', 0));   // 0
+console.log(text.indexOf('', -33)); // 0
 
-console.log(text.indexOf('', 11)); // 11
-console.log(text.indexOf('', 13)); // 11
-console.log(text.indexOf('', 22)); // 11
+console.log("\n");
+console.log(text.indexOf('', 11));  // 11
+console.log(text.indexOf('', 33));  // 12 (length + 1)
+console.log(text.indexOf('', 43));  // 12 (length + 1)
 console.log("\n");
 
 console.log('Blue Whale'.indexOf('Whale')); // 5
@@ -196,22 +204,100 @@ console.log('abc'.repeat(5)); // abcabcabcabcabc
 
 console.log("\n");
 console.log("***************************************************");
-console.log("*                     slice                       *");
+console.log("*           slice - substr - substring            *");
 console.log("***************************************************");
 console.log("\n");
 
-let str = 'abcçdefgğh';
+let str = 'Mozilla';
 
-console.log(str.length);        // 10
-console.log(str.slice(5));      // efgğh
-console.log(str.slice(3, 8));   // çdefg
-console.log(str.slice(-2));     // ğh
-console.log(str.slice(-5, -1)); // efgğ
-console.log(str.slice(-2, -5)); // ""
-console.log(str.slice(-5, 8));  // efg
-console.log(str.slice(4, -3));  // def
-console.log(str.slice(-5, -1)); // efgğ
+console.log(`str.slice()     = ${str.slice()}`);       // Mozilla
+console.log(`str.substr()    = ${str.substr()}`);      // Mozilla
+console.log(`str.substring() = ${str.substring()}`);   // Mozilla
+console.log("\n");
 
+console.log(`str.slice(2)     = ${str.slice(2)}`);      // zilla
+console.log(`str.substr(2)    = ${str.substr(2)}`);     // zilla
+console.log(`str.substring(2) = ${str.substring(2)}`);  // zilla
+console.log("\n");
+
+console.log(`str.slice(0, 3)     = ${str.slice(0, 3)}`);     // Moz
+console.log(`str.substr(0, 3)    = ${str.substr(0, 3)}`);    // Moz
+console.log(`str.substring(0, 3) = ${str.substring(0, 3)}`); // Moz
+console.log("\n");
+
+console.log(`str.slice(2, 3)     = ${str.slice(2, 3)}`);     // z
+console.log(`str.substr(2, 3)    = ${str.substr(2, 3)}`);    // zil
+console.log(`str.substring(2, 3) = ${str.substring(2, 3)}`); // z 
+console.log("\n");
+
+console.log(`str.slice(3, 1)     = ${str.slice(3, 1)}`);      // ""
+console.log(`str.substr(3, 1)    = ${str.substr(3, 1)}`);     // i
+console.log(`str.substring(3, 1) = ${str.substring(3, 1)}`);  // oz swapped substring(1, 3)
+console.log("\n");
+
+console.log(`str.slice(3, 2)     = ${str.slice(3, 2)}`);       // ""
+console.log(`str.substr(3, 2)    = ${str.substr(3, 2)}`);      // i
+console.log(`str.substring(3, 2) = ${str.substring(3, 2)}`);   // z swapped substring(2, 3)
+console.log("\n");
+
+console.log(`str.slice(2, 20)     = ${str.slice(2, 20)}`);     // zilla
+console.log(`str.substr(2, 20)    = ${str.substr(2, 20)}`);    // zilla
+console.log(`str.substring(2, 20) = ${str.substring(2, 20)}`); // zilla
+console.log("\n");
+
+console.log(`str.slice(3, 0)     = ${str.slice(3, 0)}`);     // ""
+console.log(`str.substr(3, 0)    = ${str.substr(3, 0)}`);    // ""
+console.log(`str.substring(3, 0) = ${str.substring(3, 0)}`); // Moz
+console.log("\n")
+
+console.log(`str.slice(20, 2)     = ${str.slice(20, 2)}`);     // ""
+console.log(`str.substr(20, 2)    = ${str.substr(20, 2)}`);    // ""
+console.log(`str.substring(20, 2) = ${str.substring(20, 2)}`); // Zilla
+console.log("\n");
+
+console.log(`str.slice(-1, -4)     = ${str.slice(-1, -4)}`);     // ""
+console.log(`str.substr(-1, -4)    = ${str.substr(-1, -4)}`);    // ""
+console.log(`str.substring(-1, -4) = ${str.substring(-1, -4)}`); // ""
+console.log("\n");
+
+console.log(`str.slice(-5, -2)     = ${str.slice(-5, -2)}`);     // zil 
+console.log(`str.substr(-5, -2)    = ${str.substr(-5, -2)}`);    // ""
+console.log(`str.substring(-5, -2) = ${str.substring(-5, -2)}`); // "" 
+console.log("\n");
+
+console.log(`str.slice(2, -3)     = ${str.slice(2, -3)}`);      // zi
+console.log(`str.substr(2, -3)    = ${str.substr(2, -3)}`);     // ""
+console.log(`str.substring(2, -3) = ${str.substring(2, -3)}`);  // Mo
+console.log("\n");
+
+console.log(`str.slice(-1)     = ${str.slice(-1)}`);     // a
+console.log(`str.substr(-1)    = ${str.substr(-1)}`);    // a
+console.log(`str.substring(-1) = ${str.substring(-1)}`); // Mozilla
+console.log("\n");
+
+console.log(`str.slice(-3)     = ${str.slice(-3)}`);     // lla
+console.log(`str.substr(-3)    = ${str.substr(-3)}`);    // lla
+console.log(`str.substring(-3) = ${str.substring(-3)}`); // Mozilla
+console.log("\n");
+
+console.log(`str.slice(-3, 1)     = ${str.slice(-3, 1)}`);     // ""
+console.log(`str.substr(-3, 1)    = ${str.substr(-3, 1)}`);    // l
+console.log(`str.substring(-3, 1) = ${str.substring(-3, 1)}`); // M
+console.log("\n");
+
+console.log(`str.slice(-3, 3)     = ${str.slice(-3, 3)}`);     // ""
+console.log(`str.substr(-3, 3)    = ${str.substr(-3, 3)}`);    // lla
+console.log(`str.substring(-3, 3) = ${str.substring(-3, 3)}`); // Moz
+console.log("\n");
+
+console.log(`str.slice(-3, 5)     = ${str.slice(-3, 5)}`);     // l
+console.log(`str.substr(-3, 5)    = ${str.substr(-3, 5)}`);    // lla
+console.log(`str.substring(-3, 5) = ${str.substring(-3, 5)}`); // Mozil
+console.log("\n");
+
+console.log(`str.slice(-20, 2)     = ${str.slice(-20, 2)}`);     // Mo
+console.log(`str.substr(-20, 2)    = ${str.substr(-20, 2)}`);    // Mo
+console.log(`str.substring(-20, 2) = ${str.substring(-20, 2)}`); // Mo
 
 console.log("\n");
 console.log("***************************************************");
@@ -220,7 +306,7 @@ console.log("***************************************************");
 console.log("\n");
 
 str = 'My cats are so beautifull';
-let words = str.split(" ");
+let words = str.split("a");
 
 for (i of words) {
     console.log(i);
@@ -262,66 +348,6 @@ Is
 Mesut
 */
 
-
-console.log("\n");
-console.log("***************************************************")
-console.log("*                    substr                       *");
-console.log("***************************************************")
-console.log("\n");
-
-
-str = "Mozilla";
-
-console.log(str.substr());       // Mozilla
-console.log(str.substr(2));      // zilla
-console.log(str.substr(0, 3));   // Moz
-console.log(str.substr(2, 3));   // zil
-console.log(str.substr(3, 1));   // i
-console.log(str.substr(3, 2));   // il
-console.log(str.substr(2, 20));  // zilla
-
-console.log(str.substr(3, 0));   // ""
-console.log(str.substr(20, 2));  // ""
-console.log(str.substr(-1, -4)); // ""
-console.log(str.substr(-5, -2)); // ""  
-console.log(str.substr(2, -3));  // ""
-
-console.log(str.substr(-1));     // a
-console.log(str.substr(-3));     // lla
-console.log(str.substr(-3, 1));  // l
-console.log(str.substr(-3, 3));  // lla
-console.log(str.substr(-3, 5));  // lla
-console.log(str.substr(-20, 2)); // Mo
-
-
-console.log("\n");
-console.log("***************************************************");
-console.log("*                   substring                     *");
-console.log("***************************************************");
-console.log("\n");
-
-console.log(str.substring());       // Mozilla
-console.log(str.substring(2));      // zilla
-console.log(str.substring(0, 3));   // Moz
-console.log(str.substring(2, 3));   // z
-console.log(str.substring(3, 1));   // oz
-console.log(str.substring(3, 2));   // z
-console.log(str.substring(2, 20));  // zilla
-
-console.log(str.substring(3, 0));   // Moz
-console.log(str.substring(20, 2));  // zilla
-console.log(str.substring(-1, -4)); // ""
-console.log(str.substring(-5, -2)); // ""  
-console.log(str.substring(2, -3));  // Mo
-
-console.log(str.substring(-1));     // Mozilla
-console.log(str.substring(-3));     // Mozilla
-console.log(str.substring(-3, 1));  // M
-console.log(str.substring(-3, 3));  // Moz
-console.log(str.substring(-3, 5));  // Mozil
-console.log(str.substring(-20, 2)); // Mo
-
-console.log(str.substring(str.length - 1)); // a
 
 
 console.log("\n");

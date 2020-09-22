@@ -13,7 +13,7 @@ console.log(colors[3]); // blue
 var Person = {
     first_name : "Mesut",
     last_name  : "Çifci",
-    languages    : {primary:"java", "secondary" : "python" },
+    languages  : {primary:"java", "secondary" : "python" },
     ""  : "empty string",
     "*" : "something"
 };

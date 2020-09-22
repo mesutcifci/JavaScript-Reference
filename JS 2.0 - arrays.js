@@ -161,6 +161,8 @@ console.log("\n")
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(0, 1)); // Array(5) [ "b", "c", "d", "e", "e" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(0, 2)); // Array(5) [ "c", "d", "e", "d", "e" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(0, 3)); // Array(5) [ "d", "e", "c", "d", "e" ]
+
+console.log("\n")
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(1, 1)); // Array(5) [ "a", "b", "c", "d", "e" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(1, 3)); // Array(5) [ "a", "d", "e", "d", "e" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(2, 4)); // Array(5) [ "a", "b", "e", "d", "e" ]
@@ -169,7 +171,7 @@ console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(0, 44)); // Array(5) [ "a", "b"
 
 
 console.log("\n");
-console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(0, 1, 4)); // Array(5) [ "c", "d", "c", "d", "e" ]
+console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(0, 1, 4)); // Array(5) [ "b", "c", "d", "d", "e" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(1, 3, 2)); // Array(5) [ "a", "b", "c", "d", "e" ]
 
 
@@ -178,6 +180,27 @@ console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(-1));  // Array(5) [ "a", "b", 
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(-2));  // Array(5) [ "a", "b", "c", "a", "b" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(-3, -5, -4)); // Array(5) [ "a", "b", "a", "d", "e" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(-44)); // Array(5) [ "a", "b", "c", "d", "e" ] 
+
+
+console.log("\n");
+console.log("***************************************************");
+console.log("*                   fill                          *");
+console.log("***************************************************");
+console.log("\n");
+
+
+console.log([1, 2, 3, 4, 5, 6].fill('A'));            // [ "A", "A", "A", "A", "A", "A" ]
+console.log([1, 2, 3, 4, 5, 6].fill('A', 1));         // [ 1, "A", "A", "A", "A", "A" ]
+console.log([1, 2, 3, 4, 5, 6].fill('A', 1, 2));      // [ 1, "A", 3, 4, 5, 6 ]
+console.log([1, 2, 3, 4, 5, 6].fill('A', 1, 1));      // [ 1, 2, 3, 4, 5, 6 ]
+console.log([1, 2, 3, 4, 5, 6].fill('A', 3, 5));      // [ 1, 2, 3, "A", "A", 6 ]
+console.log([1, 2, 3, 4, 5, 6].fill('A', -3, -1));    // [ 1, 2, 3, "A", "A", 6 ]
+console.log([1, 2, 3, 4, 5, 6].fill('A', NaN, NaN));  // [ 1, 2, 3, 4, 5, 6 ]
+
+
+arr = new Array(3).fill({});  // [{}, {}, {}]
+arr[0].hi = "hi";         
+console.log(arr); // [{ hi: "hi" }, { hi: "hi" }, { hi: "hi" }]
 
 
 console.log("\n");
@@ -203,11 +226,7 @@ console.log("***************************************************");
 console.log("\n");
 
 
-function isBigEnough(element, index, array) {
-  console.log("element = " + element);
-  console.log("index = " + index);
-  console.log("array = " + array);
-  console.log("\n");
+function isBigEnough(element) {
   return element >= 10;
 }
 
@@ -215,37 +234,24 @@ function isBigEnough(element, index, array) {
 
 element = 12 
 index = 0 
-array = 12,5,8,130,44 
+array = 12,55,80,130,44 
 
-element = 5
+element = 55
 index = 1
-array = 12,5,8,130,44
+array = 12,55,80,130,44
 
 */
+console.log([12, 55, 80, 130, 44].every((element, index, array) => {
+  console.log("element = " + element);
+  console.log("index = " + index);
+  console.log("array = " + array);
+  console.log("\n");
+  return element >= 10;
+}
+)); // true
 
-console.log([12, 5, 8, 130, 44].every(isBigEnough)); // false
-
-console.log([12, 5, 8, 130, 44].every(x => x >= 10)); // false 
-
-
-console.log("\n");
-console.log("***************************************************");
-console.log("*                   fill                          *");
-console.log("***************************************************");
-console.log("\n");
-
-
-console.log([1, 2, 3].fill(4));            // [4, 4, 4]
-console.log([1, 2, 3].fill(4, 1));         // [1, 4, 4]
-console.log([1, 2, 3].fill(4, 1, 2));      // [1, 4, 3]
-console.log([1, 2, 3].fill(4, 1, 1));      // [1, 2, 3]
-console.log([1, 2, 3].fill(4, 3, 3));      // [1, 2, 3]
-console.log([1, 2, 3].fill(4, -3, -1));    // [4, 4, 3]
-console.log([1, 2, 3].fill(4, NaN, NaN));  // [1, 2, 3]
-console.log([1, 2, 3].fill(4, 3, 5));      // [1, 2, 3]
-
-arr = Array(3).fill({});  // [{}, {}, {}]
-arr[0].hi = "hi";         // [{ hi: "hi" }, { hi: "hi" }, { hi: "hi" }]
+console.log([12, 55, 80, 130, 44].every(isBigEnough)); // true
+console.log([12, 5, 8, 130, 44].every(x => x >= 10));  // false 
 
 
 console.log("\n");
@@ -255,7 +261,7 @@ console.log("***************************************************");
 console.log("\n");
 
 
-function isBigEnough(element, index, array) {
+function isBigEnough(element) {
   return element >= 10;
 }
 
@@ -325,11 +331,12 @@ console.log("\n");
 
 
 array_1 = [1, 2, 3, 4];
-console.log(array_1.flatMap(x => [x * 2]));  // Array(4) [ 2, 4, 6, 8 ]
+console.log(array_1.flatMap(x => [x * 2]));    // Array(4) [ 2, 4, 6, 8 ]
+console.log(array_1.flatMap(x => [x, x+10]));  // Array(8) [ 1, 11, 2, 12, 3, 13, 4, 14 ]
 
-
-console.log(array_1.map(x => [x * 2])); // [[2], [4], [6], [8]]
-
+console.log("\n");
+console.log(array_1.map(x => [x * 2]));     // Array(4) [[2], [4], [6], [8]]
+console.log(array_1.map(x => [x, x + 10])); // Array(4) [[1, 11], [2, 12], [3, 13], [4, 14]]
 
 console.log("\n");
 console.log("***************************************************");
@@ -389,7 +396,7 @@ console.log("***************************************************");
 console.log("\n");
 
 
-array_1 = [1, 2, , 4];
+array_1 = ['a', 'b', , 'c'];
 let iterator_1 = array_1.keys();
 let iterator_2 = array_1.values()
 
@@ -399,7 +406,7 @@ for (key of iterator_1) {
 
 console.log("\n");
 for (value of iterator_2) {
-  console.log(value); // 1, 2, undefined 3
+  console.log(value); // a, b, undefined c
 }
 
 
@@ -604,9 +611,8 @@ console.log(firstElement);  // 1
 
 console.log("\n");
 let lengthOfArray = array_1.unshift(1);
-
-console.log(array_1);      // [1, 2, 4]
-console.log(firstElement); // 3 (length of array)
+console.log(array_1);       // [1, 2, 4]
+console.log(lengthOfArray); // 3 (length of array)
 
 
 console.log("\n");
@@ -734,7 +740,7 @@ console.log(myFish);  // [ "parrot", "anemone", "blue", "trumpet", "mandarin", "
 console.log("\n");
 
 // Remove 1 element from index -2
-removed = myFish.splice(-2, 1); 
+removed = myFish.splice(-2, 1);
 console.log(removed); // [ "mandarin" ]
 console.log(myFish);  // [ "parrot", "anemone", "blue", "trumpet", "sturgeon" ]
 
@@ -756,9 +762,9 @@ console.log("\n");
 array1 = [1, 2, 'a', '1a'];
 console.log(array1.toString());  // 1,2,a,1a
 
-let prices = ['￥7', 500, 8123, 12]; 
+let prices = ['￥7', 500, 8123, 12];
 // ￥7,￥500,￥8,123,￥12
-console.log(prices.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY' })); 
+console.log(prices.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY' }));
 
 
 

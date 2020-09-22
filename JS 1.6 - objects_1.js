@@ -74,6 +74,7 @@ let bag = {
 
 alert(bag.apple) // tasty if fruit == apple
 
+
 console.log("\n");
 
 /* Property existence test */
@@ -104,16 +105,20 @@ function displayInformation() {
 let myCat = new Cat("gırgır", "male");
 myCat.displayInformation();
 myCat.sayMeow();
-
+console.log("\n");
 
 // method shorthand 
 let city = {
-    longMethod: function () { console.log(".......") },
+    // longMethod: function long() { console.log(".......") }
+    // longMethod: function () { console.log(".......") }
+    longMethod: () => { console.log("......."); },
     shortMethod() { console.log(".......") },
     externalMethod: externalMethod(),
 }
 
 function externalMethod() {};
+city.longMethod();
+city.shortMethod();
 
 console.log("\n");
 
@@ -140,7 +145,7 @@ Intern.sayHi = sayHi;
 
 Manager.sayHi();
 Intern.sayHi();
-
+console.log("\n");
 
 let house = {
     size: "big",
@@ -170,6 +175,7 @@ let obj = {
 console.log(obj.number); // null
 obj.setNumber = 5;
 console.log(obj.getNumber); // 5
+console.log("\n");
 
 let obj2 = {
     text: null

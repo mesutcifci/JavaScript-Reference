@@ -19,7 +19,6 @@ let globalSymbol_2 = Symbol.for();
 let citizenID = Symbol.for('ssn');
 
 console.log(globalSymbol == globalSymbol_2); // true 
-
 console.log(Symbol.keyFor(globalSymbol));    // undefined
 console.log(Symbol.keyFor(citizenID));       // ssn
 console.log(Symbol.keyFor(foo));             //  undefined
@@ -66,8 +65,8 @@ const otherClassRomm = {
 };
 
 let persons =  Object.getOwnPropertySymbols(otherClassRomm);
-for(let i = 0; i < persons.length; i++) {
-    console.log(persons[i]);
+for(i of persons) {
+    console.log(i);
 }
 
 // result Symbol(Mia) Symbol(Gilbert) Symbol(Gilbert)
