@@ -388,6 +388,10 @@ console.log(a.join(', '));  // 'Wind, Water, Fire'
 console.log(a.join(' + ')); // 'Wind + Water + Fire'
 console.log(a.join(''));    // 'WindWaterFire'
 
+let test = new Array(4).join("A"); 
+console.log(test[2]); // A
+console.log(test[3]); // undefined
+
 
 console.log("\n");
 console.log("***************************************************");

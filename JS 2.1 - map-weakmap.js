@@ -88,20 +88,20 @@ let first = new Map([
     [1, 'one'],
     [2, 'two'],
     [3, 'three'],
-  ])
-  
-  let second = new Map([
+])
+
+let second = new Map([
     [1, 'uno'],
     [2, 'dos']
-  ])
-  
-  // Merge two maps. The last repeated key wins.
-  // Spread operator essentially converts a Map to an Array
-  let merged = new Map([...first, ...second])
-  
-  console.log(merged.get(1)) // uno
-  console.log(merged.get(2)) // dos
-  console.log(merged.get(3)) // three
+])
+
+// Merge two maps. The last repeated key wins.
+// Spread operator essentially converts a Map to an Array
+let merged = new Map([...first, ...second])
+
+console.log(merged.get(1)) // uno
+console.log(merged.get(2)) // dos
+console.log(merged.get(3)) // three
 
 console.log("-----------------------------------------------------------------");
 
@@ -209,7 +209,7 @@ console.log(map); // Map(0)
 
 console.log("\n");
 console.log("***************************************************");
-console.log("*                 forEach                  *");
+console.log("*                   forEach                       *");
 console.log("***************************************************");
 console.log("\n");
 
@@ -234,5 +234,56 @@ console.log(map.forEach((value, key, map) => {
         `)
 }));
 
+
+
+console.log("\n");
+console.log("***************************************************");
+console.log("*                    weakmap                      *");
+console.log("***************************************************");
+console.log("\n");
+
+/* available property and methods 
+delete,
+get,
+has,
+set
+*/
+
+obj = {
+    test: true,
+};
+
+let weakmap = new WeakMap();
+
+weakmap.set(obj, 'obj');
+console.log(weakmap); // WeakMap { {…} → "obj" }
+console.log("\n");
+// weakmap.set('key', 'value'); TypeError: WeakMap key must be an object, got the string "key"
+// only objects are allowed because primitive values are never garbage-collected
+
+/*
+for (let i of weakmap) {  // TypeError: weakmap_1 is not iterable
+    console.log(i);
+}
+*/
+
+let john = { name: "John" };
+
+map = new Map();
+map.set(john, "AAA");
+
+weakmap = new WeakMap();
+weakmap.set(john, "AAA");
+
+
+john = null; 
+// john is removed from memory but still available in map. 
+// Also john is removed in weakmap
+
+map.forEach(function (value, key) {
+    console.log(`key = ${key}, value = ${value}`);
+}); // key = [object Object], value = AAA
+
+console.log(weakmap.get(john)); // undefined
 
 
