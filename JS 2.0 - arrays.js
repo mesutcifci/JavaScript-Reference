@@ -16,10 +16,6 @@ console.log(array_4.length); // 5
 console.log(array_4[3]);     // undefined
 
 
-let obj = { numbers: [1, 2, 3, 4, 5] };
-obj.letters = ['a', 'b', 'c'];
-
-
 console.log("-----------------------------------------------------------------");
 
 
@@ -30,6 +26,7 @@ console.log(numbers['two']);    // undefined
 
 let letters = new Array('a', 'b', 'c');
 console.log(letters['length']); // 3
+console.log(letters.length);    // 3
 
 
 console.log("-----------------------------------------------------------------");
@@ -199,7 +196,7 @@ console.log([1, 2, 3, 4, 5, 6].fill('A', NaN, NaN));  // [ 1, 2, 3, 4, 5, 6 ]
 
 
 arr = new Array(3).fill({});  // [{}, {}, {}]
-arr[0].hi = "hi";         
+arr[0].hi = "hi";
 console.log(arr); // [{ hi: "hi" }, { hi: "hi" }, { hi: "hi" }]
 
 
@@ -251,7 +248,30 @@ console.log([12, 55, 80, 130, 44].every((element, index, array) => {
 )); // true
 
 console.log([12, 55, 80, 130, 44].every(isBigEnough)); // true
-console.log([12, 5, 8, 130, 44].every(x => x >= 10));  // false 
+console.log([12, 50, 8, 130, 44].every(x => x >= 10)); // false 
+
+
+console.log("\n");
+console.log("***************************************************");
+console.log("*                     some                        *");
+console.log("***************************************************");
+console.log("\n");
+
+
+/*
+
+function isBiggerThan10(element, index, array) {
+  return element > 10;
+}
+
+[2, 5, 8, 1, 40].some(isBiggerThan10);  // true
+[7, 5, 8, 1, 4].some(isBiggerThan10);   // false
+
+*/
+
+
+console.log([2, 5, 8, 1, 40].some(x => x > 10));  // true
+console.log([7, 5, 8, 1, 4].some(x => x > 10));   // false
 
 
 console.log("\n");
@@ -286,7 +306,9 @@ const inventory = [
 ];
 
 // Object { name: "bananas", quantity: 0 }
-console.log(inventory.find(({ name }) => name === 'bananas'));
+console.log(inventory.find(
+  ({ name }) => name === 'bananas'
+));
 
 
 console.log("\n");
@@ -331,10 +353,12 @@ console.log("\n");
 
 
 array_1 = [1, 2, 3, 4];
-console.log(array_1.flatMap(x => [x * 2]));    // Array(4) [ 2, 4, 6, 8 ]
-console.log(array_1.flatMap(x => [x, x+10]));  // Array(8) [ 1, 11, 2, 12, 3, 13, 4, 14 ]
+console.log(array_1.flatMap(x => x * 2));       // Array(4) [ 2, 4, 6, 8 ]
+console.log(array_1.flatMap(x => [x * 2]));     // Array(4) [ 2, 4, 6, 8 ]
+console.log(array_1.flatMap(x => [x, x + 10])); // Array(8) [ 1, 11, 2, 12, 3, 13, 4, 14 ]
 
 console.log("\n");
+console.log(array_1.map(x => x * 2));       // Array(4) [ 2, 4, 6, 8 ]
 console.log(array_1.map(x => [x * 2]));     // Array(4) [[2], [4], [6], [8]]
 console.log(array_1.map(x => [x, x + 10])); // Array(4) [[1, 11], [2, 12], [3, 13], [4, 14]]
 
@@ -388,7 +412,8 @@ console.log(a.join(', '));  // 'Wind, Water, Fire'
 console.log(a.join(' + ')); // 'Wind + Water + Fire'
 console.log(a.join(''));    // 'WindWaterFire'
 
-let test = new Array(4).join("A"); 
+let test = new Array(4).join("A");
+console.log(test);    // AAA
 console.log(test[2]); // A
 console.log(test[3]); // undefined
 
@@ -425,7 +450,7 @@ array_1 = [1, 2, 3, 4];
 
 let push = array_1.push(5, 6, 6, 1);
 console.log(array_1); // [ 1, 2, 3, 4, 5, 6, 6, 1]
-console.log(push);    // 8
+console.log(push);    // 8 (length of array)
 
 console.log("\n");
 let pop = array_1.pop();
@@ -638,29 +663,6 @@ console.log(array_1.slice(33));     // []
 console.log(array_1.slice(7, 1));   // []
 console.log(array_1.slice(6, -6));  // []
 console.log(array_1.slice(-3, -7)); // []
-
-
-console.log("\n");
-console.log("***************************************************");
-console.log("*                     some                        *");
-console.log("***************************************************");
-console.log("\n");
-
-
-/*
-
-function isBiggerThan10(element, index, array) {
-  return element > 10;
-}
-
-[2, 5, 8, 1, 40].some(isBiggerThan10);  // true
-[7, 5, 8, 1, 4].some(isBiggerThan10);   // false
-
-*/
-
-
-console.log([2, 5, 8, 1, 40].some(x => x > 10));  // true
-console.log([7, 5, 8, 1, 4].some(x => x > 10));   // false
 
 
 console.log("\n");

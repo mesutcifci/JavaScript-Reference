@@ -1,9 +1,9 @@
 /* e */
 
-let number = 1000000000;
+let number = 10000;
 
-console.log(1e9 == number) // true
-console.log(2.15e3 == (2.15 * 1000)); // true
+console.log(1e4 == number) // true
+console.log(2.15e3 == 2150);  // true
 console.log(4e-4 == 0.0004) // true
 
 
@@ -17,7 +17,7 @@ console.log("\n");
 number = 255;
 console.log(number.toString(16)); // ff
 console.log(number.toString(2));  // 11111111
-console.log(25578782142..toString(36)); // br0y2m6
+console.log(255..toString(36));   // 73
 
 
 console.log("\n");
@@ -43,10 +43,10 @@ console.log("***************************************************");
 console.log("\n");
 
 
-console.log(Number.isInteger(5));    // true
-console.log(Number.isInteger(5 / 2));  // false
-console.log(Number.isInteger(5.0));  // true
-console.log(Number.isInteger("10")); // false
+console.log(Number.isInteger(5));     // true
+console.log(Number.isInteger(5 / 2)); // false
+console.log(Number.isInteger(5.0));   // true
+console.log(Number.isInteger("10"));  // false
 
 
 console.log("\n");
@@ -61,17 +61,27 @@ let number_2 = 123.447;
 let number_3 = 123.443;
 
 console.log(number_1.toFixed());  // 123
-
 console.log(number_1.toFixed(1)); // 123.5 rounds up
 console.log(number_2.toFixed(1))  // 123.4 rounds down
+console.log("\n");
 
 console.log(number_1.toFixed(2)); // 123.46 rounds up
 console.log(number_2.toFixed(2)); // 123.45 rounds up
 console.log(number_3.toFixed(2)); // 123.44 rounds down
+console.log("\n");
 
 console.log(number_1.toFixed(3)); // 123.457
 console.log(number_1.toFixed(4)); // 123.4570 
+console.log("\n");
 
+number_1 = 0.123;
+console.log(number.toFixed());    // 255
+console.log(number_1.toFixed(1)); // 0.1
+console.log(number_1.toFixed(2)); // 0.12
+console.log(number_1.toFixed(3)); // 0.123
+console.log(number_1.toFixed(4)); // 0.1230
+
+console.log("\n");
 console.log(typeof (number_1.toFixed())); // string
 
 /* !!!!! 
@@ -92,20 +102,33 @@ console.log("\n");
 let n = 1;
 console.log(n.toPrecision(1)); // 1
 console.log(n.toPrecision(2)); // 1.0
+console.log("\n");
 
 n = 12;
 console.log(n.toPrecision(1)); // 1e+1
+console.log("\n");
 
 n = 123;
 console.log(n.toPrecision(1)); // 1e+2
 console.log(n.toPrecision(2)); // 1.2e + 2
+console.log("\n");
 
 n = 1234;
 console.log(n.toPrecision(3)); // 1.2e + 3  
+console.log("\n");
 
 n = 123.45;
 console.log(n.toPrecision(1)); // 1e+2 
+console.log("\n");
 
+n = 0.123
+console.log(n.toPrecision());  // 0.123
+console.log(n.toPrecision(1)); // 0.1
+console.log(n.toPrecision(2)); // 0.12
+console.log(n.toPrecision(3)); // 0.123
+console.log(n.toPrecision(4)); // 0.1230
+
+console.log("\n");
 console.log(typeof (n.toPrecision())); // string 
 
 
@@ -161,7 +184,7 @@ let date_4 = new Date(1995, 11);
 console.log(date_4); // Fri Dec 01 1995 00:00:00 GMT+0200 (GMT+03:00)
 
 let date_5 = new Date("");
-console.log(date_5);
+console.log(date_5); // Invalid Date
 
 
 console.log("\n");
@@ -176,9 +199,10 @@ console.log(Date.now());
 
 const theTime = Date.parse("01 jan 1970 00:00:01 GMT");
 console.log(theTime); // 1000
+console.log("\n");
 
-const utcTime = new Date(Date.UTC(1995, 11)); // Fri Dec 01 1995 02:00:00 GMT+0200 (GMT+03:00)
-console.log(utcTime);
+const utcTime = Date.UTC(1970, 0, 1, 00, 00, 01);
+console.log(utcTime); // 1000
 
 
 console.log("\n");
@@ -191,23 +215,23 @@ console.log("\n");
 
 // Also set merhods available 
 
-// let birthday = new Date("August 11, 2011 08:16:24:600"); invalid format(also valid without ms)
-// important! 0 = jan, 1 = feb etc...
+// let birthday = new Date("August 11, 2011 08:16:24:500"); invalid format(also valid without ms)
+// important! 0 = jan, 1 = feb etc... 
 let birthday = new Date(2011, 7, 11, 8, 16, 24, 500);
-
+console.log(birthday + "\n"); // Thu Aug 11 2011 08:16:24 GMT+0300 (GMT+03:00)
 
 console.log(birthday.getFullYear()); // 2011
 console.log(birthday.getMonth());    // 7
 
 console.log("\n");
 console.log(birthday.getDate()); // 11
-console.log(birthday.getDay());  // 0 (meaning sunday)
+console.log(birthday.getDay());  // 4 (0 = sunday, 1 = monday etc...)
 
 console.log("\n");
-console.log(birthday.getHours());    // 8
-console.log(birthday.getMinutes());  // 16
-console.log(birthday.getSeconds());  // 24
-console.log(birthday.getMilliseconds()); // 600
+console.log(birthday.getHours());        // 8
+console.log(birthday.getMinutes());      // 16
+console.log(birthday.getSeconds());      // 24
+console.log(birthday.getMilliseconds()); // 500
 
 console.log("--------------------------");
 
@@ -217,6 +241,9 @@ sameAsBigDay.setTime(theBigDay.getTime());
 
 console.log(theBigDay);    // Thu Jul 01 1999 00:00:00 GMT+0300 (GMT+03:00)
 console.log(sameAsBigDay); // Thu Jul 01 1999 00:00:00 GMT+0300 (GMT+03:00)
+
+console.log(theBigDay.getTime()); // 930776400000
+
 
 console.log("--------------------------");
 
@@ -244,13 +271,13 @@ console.log(catDay.toJSON());       // 2222-12-19T05:07:06.400Z
 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timezone: 'UTC' };
 
 console.log("\n");
-console.log(catDay.toDateString()); // Thu Dec 19 2222
+console.log(catDay.toLocaleDateString());        // 12/19/2222
 console.log(catDay.toLocaleDateString('tr-TR')); // 19.12.2222
 console.log(catDay.toLocaleDateString('tr-TR', options)); // 19 Aralık 2222 Perşembe
 
 console.log("\n");
-console.log(catDay.toLocaleString()); // 12/19/2222, 8:07:06 AM
-console.log(catDay.toLocaleString('tr-TR')); // 19.12.2222 08:07:06
+console.log(catDay.toLocaleString());        // 12/19/2222, 8:07:06 AM
+console.log(catDay.toLocaleString('tr-TR')); // 19.12.2222  08:07:06
 console.log(catDay.toLocaleString('tr-TR', options)); // 19 Aralık 2222 Perşembe
 
 console.log("\n");
@@ -259,7 +286,7 @@ console.log(catDay.toLocaleTimeString('tr-TR')); // 08:07:06
 console.log(catDay.toLocaleTimeString('tr-TR', options)); // 19 Aralık 2222 Perşembe 08:07:06
 
 console.log("\n");
-console.log(catDay.toString()); // Thu Dec 19 2222 08:07:06 GMT+0300 (GMT+03:00)
+console.log(catDay.toString());     // Thu Dec 19 2222 08:07:06 GMT+0300 (GMT+03:00)
 console.log(catDay.toTimeString()); // 08:07:06 GMT+0300 (GMT+03:00)
 
 

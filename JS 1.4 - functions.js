@@ -10,7 +10,7 @@ console.log(myFunction(10));
 
 let square = function (value) {
     return value * value
-}
+};
 
 
 console.log(square(4));
@@ -30,7 +30,7 @@ function map(func, arr) {
 let multiply = function (number) { return number * 2; };
 let numbers = [10, 20, 30, 40, 50];
 
-console.log(map(multiply, numbers));
+console.log(map(multiply, numbers)); // 20 40 60 80 100
 
 console.log("-------------------------");
 
@@ -73,11 +73,11 @@ function A(x) {
         function C(z) {
             console.log(x + y + z);
         }
-        C(1);
+        return C;
     }
-    B(1);
+    return B;
 }
-A(1);
+console.log(A(1)(1)(1));
 
 console.log("-------------------------");
 
@@ -162,3 +162,8 @@ let subtract = function (x, y) {
 let divide = (x,y) => x / y;
 let sqr = x => x * x;
 let something = () => console.log("something");
+let printAndReturn = (x, y) => {
+    let sum = x + y;
+    console.log(`sum = ${sum}`);
+    return sum;
+}

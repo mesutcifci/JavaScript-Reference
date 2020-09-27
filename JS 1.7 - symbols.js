@@ -19,9 +19,12 @@ let globalSymbol_2 = Symbol.for();
 let citizenID = Symbol.for('ssn');
 
 console.log(globalSymbol == globalSymbol_2); // true 
+console.log(globalSymbol == citizenID);      // false 
+console.log("\n");
+
 console.log(Symbol.keyFor(globalSymbol));    // undefined
 console.log(Symbol.keyFor(citizenID));       // ssn
-console.log(Symbol.keyFor(foo));             //  undefined
+console.log(Symbol.keyFor(foo));             // undefined
 
 console.log("\n");
 

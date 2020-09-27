@@ -41,11 +41,16 @@ console.log(text.charAt(-1)); // empty string
 console.log(text.charCodeAt(4));  // 111
 console.log(text.charCodeAt(55)); // NaN
 console.log(text.charCodeAt(-1)); // NaN
+console.log("\n");
 
 let text_2 = "🌃";
 
-console.log(text_2.charCodeAt(0));  // 55356
-console.log(text_2.codePointAt(0)); // 127747
+console.log(text_2.charCodeAt());   // 55356
+console.log(text_2.charCodeAt(1));  // 57091
+
+console.log("\n")
+console.log(text_2.codePointAt());  // 127747
+console.log(text_2.codePointAt(1)); // 57091
 
 console.log("\n");
 console.log(text_2.charCodeAt(0).toString(16));  // d83c
@@ -56,7 +61,7 @@ console.log(text_2.codePointAt(0).toString(16)); // 1f303
 console.log(text_2.codePointAt(1).toString(16)); // df03
 
 console.log("\n");
-console.log(String.fromCodePoint(text_2.charCodeAt(0)));    // �
+console.log(String.fromCodePoint(text_2.charCodeAt(0)));   // �
 console.log(String.fromCodePoint(text_2.codePointAt(0)));  // 🌃
 
 console.log("\n");
@@ -83,12 +88,13 @@ console.log("\n");
 text = "Hello, World";
 
 console.log(text.startsWith('Hel'));   // true
+console.log(text.startsWith('Hol'));   // false
 console.log(text.startsWith('Wo', 7)); // true
 
 console.log("\n");
 console.log(text.endsWith('ld'));    // true
-console.log(text.endsWith('Wo', 9)); // true
-
+console.log(text.endsWith('e', 1));  // false
+console.log(text.endsWith('e', 2));  // true
 
 console.log("\n");
 console.log("***************************************************");
@@ -115,8 +121,12 @@ console.log("\n");
 text = "Hello, World";
 
 console.log(text.indexOf('o'));      // 4
+console.log(text.indexOf('o', 8));   // 8
+console.log("\n");
+
 console.log(text.indexOf('o', -44)); // 4
 console.log(text.indexOf('o', 55));  // -1
+
 console.log(text.indexOf('o', 9));   // -1
 console.log(text.indexOf('O'));      // -1
 console.log("\n");
@@ -124,8 +134,8 @@ console.log("\n");
 console.log(text.indexOf(''));      // 0
 console.log(text.indexOf('', 0));   // 0
 console.log(text.indexOf('', -33)); // 0
-
 console.log("\n");
+
 console.log(text.indexOf('', 11));  // 11
 console.log(text.indexOf('', 33));  // 12 (length + 1)
 console.log(text.indexOf('', 43));  // 12 (length + 1)
@@ -142,15 +152,21 @@ console.log("***************************************************")
 console.log("\n");
 
 
-console.log('canal'.lastIndexOf('a'));      // 3
-console.log('canal'.lastIndexOf('a', 2));;  // 1
-console.log('canal'.lastIndexOf('c', -5));; // 0
-console.log('canal'.lastIndexOf('c', 0));;  // 0
-console.log('canal'.lastIndexOf(''));;      // 5
-console.log('canal'.lastIndexOf('', 2));;   // 2
+console.log('parola'.lastIndexOf('a'));     // 5
+console.log('parola'.lastIndexOf('o', 2));  // -1  searching on par
+console.log('parola'.lastIndexOf('o', 4));  // 3   searching on parol
+console.log("\n")
+
+console.log('canal'.lastIndexOf('c', -1));  // 0
+console.log('canal'.lastIndexOf('c', -11)); // 0
+console.log('canal'.lastIndexOf('n', -1));  // -1
+console.log("\n");
+
+console.log('canal'.lastIndexOf(''));       // 5
+console.log('canal'.lastIndexOf('', 2));    // 2
 console.log('canal'.lastIndexOf('a', 55));  // 3
-console.log('canal'.lastIndexOf('a', 0));;  // -1
-console.log('canal'.lastIndexOf('x'));;     // -1
+console.log('canal'.lastIndexOf('a', 0));   // -1
+console.log('canal'.lastIndexOf('x'));      // -1
 console.log("\n");
 
 console.log(text.lastIndexOf(''));    // 12
@@ -215,6 +231,7 @@ console.log(`str.substr()    = ${str.substr()}`);      // Mozilla
 console.log(`str.substring() = ${str.substring()}`);   // Mozilla
 console.log("\n");
 
+
 console.log(`str.slice(2)     = ${str.slice(2)}`);      // zilla
 console.log(`str.substr(2)    = ${str.substr(2)}`);     // zilla
 console.log(`str.substring(2) = ${str.substring(2)}`);  // zilla
@@ -223,6 +240,11 @@ console.log("\n");
 console.log(`str.slice(0, 3)     = ${str.slice(0, 3)}`);     // Moz
 console.log(`str.substr(0, 3)    = ${str.substr(0, 3)}`);    // Moz
 console.log(`str.substring(0, 3) = ${str.substring(0, 3)}`); // Moz
+console.log("\n");
+
+console.log(`str.slice(1, 3)     = ${str.slice(1, 3)}`);     // oz
+console.log(`str.substr(1, 3)    = ${str.substr(1, 3)}`);    // ozi
+console.log(`str.substring(1, 3) = ${str.substring(1, 3)}`); // oz
 console.log("\n");
 
 console.log(`str.slice(2, 3)     = ${str.slice(2, 3)}`);     // z
@@ -252,7 +274,7 @@ console.log("\n")
 
 console.log(`str.slice(20, 2)     = ${str.slice(20, 2)}`);     // ""
 console.log(`str.substr(20, 2)    = ${str.substr(20, 2)}`);    // ""
-console.log(`str.substring(20, 2) = ${str.substring(20, 2)}`); // Zilla
+console.log(`str.substring(20, 2) = ${str.substring(20, 2)}`); // zilla
 console.log("\n");
 
 console.log(`str.slice(-1, -4)     = ${str.slice(-1, -4)}`);     // ""
@@ -415,6 +437,6 @@ console.log(x.valueOf());  // 'Hello world'
 
 
 console.log(`This\n6`)  // this 
-                        // 6
-console.log(String.raw `This\n6`); // This\n6
+// 6
+console.log(String.raw`This\n6`); // This\n6
 

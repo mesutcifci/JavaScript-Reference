@@ -267,7 +267,7 @@ for (let i of weakmap) {  // TypeError: weakmap_1 is not iterable
 }
 */
 
-let john = { name: "John" };
+john = { name: "John" };
 
 map = new Map();
 map.set(john, "AAA");
@@ -276,7 +276,7 @@ weakmap = new WeakMap();
 weakmap.set(john, "AAA");
 
 
-john = null; 
+delete john;
 // john is removed from memory but still available in map. 
 // Also john is removed in weakmap
 
@@ -284,6 +284,6 @@ map.forEach(function (value, key) {
     console.log(`key = ${key}, value = ${value}`);
 }); // key = [object Object], value = AAA
 
-console.log(weakmap.get(john)); // undefined
+
 
 

@@ -7,13 +7,12 @@ let myHonda = {
     wheels: 4,
     engine: { cylinders: 4, size: 2.2 }, // engine property is also an object with its own properties
     "can speed": true // multiword property name must be quoted
-}
+};
 
 let key = prompt("What do you want to know about the car?", "color");
 alert(myHonda[key]); // red if enter color
 
 console.log(myHonda["can speed"]); // true
-
 console.log("\n");
 
 // 2 - constructors function
@@ -116,7 +115,7 @@ let city = {
     externalMethod: externalMethod(),
 }
 
-function externalMethod() {};
+function externalMethod() { };
 city.longMethod();
 city.shortMethod();
 
@@ -255,9 +254,14 @@ let clone_4 = {};
 clone_4.bio = hero.bio;
 
 console.log(clone_4.bio) // Object { power: "infinity", hair: "0" }
-console.log(clone_4.bio == hero.bio); // true
+console.log(clone_4.bio == hero.bio);  // true
 console.log(clone_4.bio === hero.bio); // true
+console.log("\n");
 
+console.log(hero.bio); // Object { power: "infinity", hair: "0" }
+clone_4.bio.hair  = '100';
+clone_4.bio.power = 0;
+console.log(hero.bio); // Object { power: 0, hair: "100" }
 console.log("\n");
 
 /* return vs this */
