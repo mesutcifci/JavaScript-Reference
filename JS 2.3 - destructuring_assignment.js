@@ -3,11 +3,9 @@ let arr = ['kemal', 'ayhan'];
 //shorter way to write :
 //let firstName = arr[0];
 //let surname = arr[1];
-
 let [firstName, surname] = arr; // destructuring assigment 
-let [first, second, third] = "123";
+[first, second, third] = "123";
 let [one, two, three] = new Set([1, 2, 3]);
-
 let user = {};
 [user.name, user.surname] = arr;
 
@@ -27,7 +25,7 @@ user = {
 
 // loop over keys-and-values
 for (let [key, value] of Object.entries(user)) {
-    console.log(`${key}:${value}`); // name:John, then age:30
+    console.log(`${key}:${value}`); // name:John,  age:30
 }
 
 /* ------------------------------------------------------------------------------------ */
@@ -46,7 +44,7 @@ console.log(`name_1 = ${name_1},  name_2 = ${name_2}`);  // name_1 = elif,  name
 console.log("\n");
 
 [name = "Guest", surname = "Anonymous"] = ["Julius"];
-console.log(name);     // Guest
+console.log(name);     // julius
 console.log(surname);  // Anonymous
 
 /* ------------------------------------------------------------------------------------ */

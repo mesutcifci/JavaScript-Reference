@@ -58,8 +58,8 @@ console.log("\n");
 let bool = set_1.delete([1,2,3]);
 console.log(bool); // false
 bool = set_1.delete(numbers); 
-console.log(bool);
-console.log("\n");
+console.log(bool); // true
+console.log("\n"); 
 
 console.log(set_1); // Set(3) [ 1, 2, 3 ]
 

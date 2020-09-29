@@ -16,10 +16,8 @@ let user_1 = new User('mesut', 23, 'unemployed', { name: 'gırgır', race: 'sarm
     "cat":{"name":"gırgır","race":"sarman"},
     "favouriteColor":["black","red"]
 }
-
 */
 console.log(JSON.stringify(user_1));
-
 console.log("\n");
 
 /* ------------------------------------------------------------------------------------ */
@@ -88,6 +86,7 @@ name:         John
 name:         Alice
 place:        [object Object]
 number:       23
+occupiedBy: [object Object]
 
 {"title":"Conference","participants":[{"name":"John"},{"name":"Alice"}],"place":{"number":23}}
 */
@@ -212,9 +211,9 @@ JSON.stringify([obj]); // '["Now I am a nested object under key '0'"]'
 let json = '{"result":true, "count":42}';
 obj = JSON.parse(json);
 
-console.log(obj.count); // expected output: 42
+console.log(obj.count); // 42
 
-console.log(obj.result); // expected output: true
+console.log(obj.result); // true
 
 
 

@@ -113,7 +113,7 @@ let city = {
     longMethod: () => { console.log("......."); },
     shortMethod() { console.log(".......") },
     externalMethod: externalMethod(),
-}
+};
 
 function externalMethod() { };
 city.longMethod();

@@ -8,6 +8,7 @@ let array_3 = new Array(5);
 console.log(array_3.length); // 5
 console.log(array_3[3]);     // undefined
 
+console.log("\n");
 
 let array_4 = [];
 array_4.length = 5;
@@ -57,6 +58,7 @@ console.log(animals.length); // 0
 animals[55] = 'cat'
 console.log(animals.length) // 56
 
+console.log("\n");
 
 arr = [1, 2, 3, 4, 5];
 
@@ -89,8 +91,8 @@ console.log("\n");
 let foo = Array.from('foo');
 console.log(foo); // Array(3) [ "f", "o", "o" ]
 
-let num = Array.from([1, 2, 3], x => x + x);
-console.log(num); // Array(3) [ 2, 4, 6 ]
+let nums = Array.from([1, 2, 3], x => x + x);
+console.log(nums); // Array(3) [ 2, 4, 6 ]
 
 function f() {
   return Array.from(arguments);
@@ -98,14 +100,10 @@ function f() {
 
 console.log(f(1, 2, 3)[1]);  // 2
 
-
-
 console.log("\n");
 console.log(Array.of('foo'));     // Array [ "foo" ]
 console.log(Array.of(1, 2, 3));   // Array(3) [ 1, 2, 3 ]
 console.log(Array.of(undefined)); // Array [ undefined ]
-
-
 
 console.log("\n");
 console.log(Array.isArray([]));
@@ -153,18 +151,17 @@ console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(1));  // Array(5) [ "a", "a", "
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(2));  // Array(5) [ "a", "b", "a", "b", "c" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(44)); // Array(5) [ "a", "b", "c", "d", "e" ]
 
-
 console.log("\n")
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(0, 1)); // Array(5) [ "b", "c", "d", "e", "e" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(0, 2)); // Array(5) [ "c", "d", "e", "d", "e" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(0, 3)); // Array(5) [ "d", "e", "c", "d", "e" ]
 
 console.log("\n")
-console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(1, 1)); // Array(5) [ "a", "b", "c", "d", "e" ]
-console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(1, 3)); // Array(5) [ "a", "d", "e", "d", "e" ]
-console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(2, 4)); // Array(5) [ "a", "b", "e", "d", "e" ]
-console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(3, 1)); // Array(5) [ "a", "b", "c", "b", "c" ]
-console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(0, 44)); // Array(5) [ "a", "b", "c", "d", "e" ]
+console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(1, 1));  // Array(5) [ "a", "b", "c", "d", "e" ]
+console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(1, 3));  // Array(5) [ "a", "d", "e", "d", "e" ]
+console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(2, 4));  // Array(5) [ "a", "b", "e", "d", "e" ]
+console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(3, 1));  // Array(5) [ "a", "b", "c", "b", "c" ]
+console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(2, 44)); // Array(5) [ "a", "b", "c", "d", "e" ]
 
 
 console.log("\n");
@@ -210,7 +207,7 @@ console.log("\n");
 letters = ['a', 'b', 'c'];
 let iterator1 = letters.entries();
 
-console.log(iterator1.next().value); // Array [ 0, "a" ]
+console.log(iterator1.next().value); // Array [ 0, "a"]
 console.log(iterator1.next().value); // Array [ 1, "b"]
 console.log(iterator1.next().value); // Array [ 2, "c"]
 console.log(iterator1.next().value); // undefined
@@ -408,6 +405,7 @@ console.log(array_1.lastIndexOf(0, 6)); // 0
 console.log("\n");
 let a = ['Wind', 'Water', 'Fire'];
 console.log(a.join());      // 'Wind,Water,Fire'
+console.log(a.join(true));  // 'WindtrueWatertrueFire'
 console.log(a.join(', '));  // 'Wind, Water, Fire'
 console.log(a.join(' + ')); // 'Wind + Water + Fire'
 console.log(a.join(''));    // 'WindWaterFire'
@@ -448,14 +446,14 @@ console.log("\n");
 
 array_1 = [1, 2, 3, 4];
 
-let push = array_1.push(5, 6, 6, 1);
-console.log(array_1); // [ 1, 2, 3, 4, 5, 6, 6, 1]
+let push = array_1.push(5, 6, 6, 2);
+console.log(array_1); // [ 1, 2, 3, 4, 5, 6, 6, 2]
 console.log(push);    // 8 (length of array)
 
 console.log("\n");
 let pop = array_1.pop();
 console.log(array_1); // [ 1, 2, 3, 4, 5, 6]
-console.log(pop);     // 1
+console.log(pop);     // 2
 
 
 console.log("\n");
@@ -715,7 +713,7 @@ console.log("***************************************************");
 console.log("\n");
 
 
-// Remove 0 (zero) elements before index 2, and insert "drum" and "guitar"
+// Remove 0 (zero) elements and, insert "drum" and "guitar" before index 2
 let myFish = ['angel', 'clown', 'mandarin', 'sturgeon']
 let removed = myFish.splice(2, 0, 'drum', 'guitar')
 

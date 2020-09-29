@@ -196,12 +196,18 @@ console.log("\n");
 
 // returns the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC.
 console.log(Date.now());
-
-const theTime = Date.parse("01 jan 1970 00:00:01 GMT");
-console.log(theTime); // 1000
 console.log("\n");
 
-const utcTime = Date.UTC(1970, 0, 1, 00, 00, 01);
+let theTime = Date.parse("01 jan 1970 00:00:01 GMT");
+
+console.log(theTime);                // 1000
+console.log(Date.parse(2020));       // 1577836800000
+console.log(Date.parse(2020, 8));    // 1577836800000
+console.log(Date.parse("2020"));     // 1577836800000
+console.log(Date.parse("2020 8"));   // NaN 
+console.log("\n");
+
+let utcTime = Date.UTC(1970, 0, 1, 00, 00, 01);
 console.log(utcTime); // 1000
 
 
@@ -250,8 +256,9 @@ console.log("--------------------------");
 var dd = new Date(birthday.getMilliseconds());
 console.log(dd); // Thu Jan 01 1970 02:00:00 GMT+0200 (GMT+03:00)
 dd = new Date(Date.now());
-console.log(dd); // Sat Sep 12 2020 13:30:58 GMT+0300 (GMT+03:00)
-
+console.log(dd); // OK
+dd = new Date(Date.parse(2020));
+console.log(dd); // Wed Jan 01 2020 03:00:00 GMT+0300 (GMT+03:00)
 
 console.log("\n");
 console.log("***************************************************");

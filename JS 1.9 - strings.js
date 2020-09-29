@@ -121,7 +121,7 @@ console.log("\n");
 text = "Hello, World";
 
 console.log(text.indexOf('o'));      // 4
-console.log(text.indexOf('o', 8));   // 8
+console.log(text.indexOf('o', 7));   // 8
 console.log("\n");
 
 console.log(text.indexOf('o', -44)); // 4
@@ -153,8 +153,8 @@ console.log("\n");
 
 
 console.log('parola'.lastIndexOf('a'));     // 5
-console.log('parola'.lastIndexOf('o', 2));  // -1  searching on par
-console.log('parola'.lastIndexOf('o', 4));  // 3   searching on parol
+console.log('parola'.lastIndexOf('a', 2));  // 1  searching on par
+console.log('parola'.lastIndexOf('o', 4));  // 3  searching on parol
 console.log("\n")
 
 console.log('canal'.lastIndexOf('c', -1));  // 0
@@ -237,6 +237,11 @@ console.log(`str.substr(2)    = ${str.substr(2)}`);     // zilla
 console.log(`str.substring(2) = ${str.substring(2)}`);  // zilla
 console.log("\n");
 
+console.log(`str.slice(6)     = ${str.slice(6)}`);      // a
+console.log(`str.substr(6)    = ${str.substr(6)}`);     // a
+console.log(`str.substring(6) = ${str.substring(6)}`);  // a
+console.log("\n");
+
 console.log(`str.slice(0, 3)     = ${str.slice(0, 3)}`);     // Moz
 console.log(`str.substr(0, 3)    = ${str.substr(0, 3)}`);    // Moz
 console.log(`str.substring(0, 3) = ${str.substring(0, 3)}`); // Moz
@@ -312,9 +317,9 @@ console.log(`str.substr(-3, 3)    = ${str.substr(-3, 3)}`);    // lla
 console.log(`str.substring(-3, 3) = ${str.substring(-3, 3)}`); // Moz
 console.log("\n");
 
-console.log(`str.slice(-3, 5)     = ${str.slice(-3, 5)}`);     // l
-console.log(`str.substr(-3, 5)    = ${str.substr(-3, 5)}`);    // lla
-console.log(`str.substring(-3, 5) = ${str.substring(-3, 5)}`); // Mozil
+console.log(`str.slice(-4, 6)     = ${str.slice(-4, 6)}`);     // ill 
+console.log(`str.substr(-4, 6)    = ${str.substr(-4, 6)}`);    // illa
+console.log(`str.substring(-4, 6) = ${str.substring(-4, 6)}`); // Mozill
 console.log("\n");
 
 console.log(`str.slice(-20, 2)     = ${str.slice(-20, 2)}`);     // Mo
@@ -327,8 +332,8 @@ console.log("*                     split                       *");
 console.log("***************************************************");
 console.log("\n");
 
-str = 'My cats are so beautifull';
-let words = str.split("a");
+str = 'My-cats-are-so-beautifull';
+let words = str.split("-");
 
 for (i of words) {
     console.log(i);
@@ -355,21 +360,6 @@ one
 two
 three
 */
-console.log("\n");
-
-str = "MyabcNameabcIsabcMesut";
-words = str.split('abc');
-
-for (i of words) {
-    console.log(i);
-}
-/*
-My
-Name
-Is
-Mesut
-*/
-
 
 
 console.log("\n");
@@ -395,7 +385,7 @@ console.log("\n");
 let city = 'istanbul';
 
 console.log(city.toLocaleUpperCase('en-US')); // ISTANBUL
-console.log(city.toLocaleUpperCase('TR'));    // İSTANBUL"
+console.log(city.toLocaleUpperCase('TR'));    // İSTANBUL
 
 let letter = 'I';
 
@@ -430,13 +420,13 @@ console.log("\n");
 
 
 
-let x = new String('Hello world');
-console.log(x.toString()); // 'Hello world'
-console.log(x.valueOf());  // 'Hello world'
+let x = new String(123456789);
+console.log(x.toString()); // 123456789 (string)
+console.log(x.valueOf());  // 123456789 (string)
 
 
 
-console.log(`This\n6`)  // this 
+console.log(`This\n6`);  // this 
 // 6
 console.log(String.raw`This\n6`); // This\n6
 
