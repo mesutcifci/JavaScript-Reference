@@ -29,3 +29,15 @@ var num4 = 40;
 
 // console.log(num5); // ReferenceError: can't access lexical declaration `num5' before initialization
 let num5 = 5;
+
+
+function example() {
+    let num_6 = 6;
+    var num_7 = 7;
+    num_8 = 8;
+}
+
+// console.log(num_6); // ReferenceError: num_6 is not defined
+// console.log(num_7); // ReferenceError: num_7 is not defined
+// console.log(num_8); // ReferenceError: num_8 is not defined
+
