@@ -1,4 +1,4 @@
-if(true) {
+if (true) {
     x = 10;
     var y = 20;
     let z = 30;
@@ -21,9 +21,9 @@ let num3 = 3;
 console.log(num4); // result = undefined
 var num4 = 4;
 
-(function() {
-console.log(num4); // result = undefined
-var num4 = 40;
+(function () {
+    console.log(num4); // result = undefined
+    var num4 = 40;
 })();
 
 
@@ -41,3 +41,14 @@ function example() {
 // console.log(num_7); // ReferenceError: num_7 is not defined
 // console.log(num_8); // ReferenceError: num_8 is not defined
 
+function dummyFunction() {
+    dummy = 'wtf'
+    if (false) {
+        var dummy;
+    }
+
+    console.log(dummy);
+
+}
+
+dummyFunction(); // wtf
