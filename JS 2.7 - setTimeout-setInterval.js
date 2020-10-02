@@ -1,8 +1,8 @@
 // seTimeout 
 
 function helloWorld() {
-setTimeout(() => console.log("Hello"));
-console.log("World");
+    setTimeout(() => console.log("Hello"));
+    console.log("World");
 }
 
 helloWorld(); // World Hello
@@ -36,8 +36,23 @@ let counter = setInterval(() => console.log(number++), 1000);
 setTimeout(() => {
     clearInterval(counter);
     console.log('counting stopped')
-}, 6000); 
+}, 6000);
 
 /* ------------------------------------------------------------------------------------ */
 
+// the 'this' problem
 
+const dog = {
+    sound: 'woof',
+    bark() {
+        console.log(`Rover says ${this.sound}!`);
+    }
+};
+
+dog.bark();
+// Outputs: Rover says woof! because 'this' points to the dog object
+
+setTimeout(dog.bark, 50);
+// Outputs: Rover says undefined! because  'this' points to the global window object
+
+setTimeout(dog.bark.bind(dog), 50); // now this points to the dog object
