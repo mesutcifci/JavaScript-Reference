@@ -1,3 +1,5 @@
+"use strict"
+
 /* Array Literals */
 
 var numbers  = ["one", "two"]; // length = 2
@@ -18,11 +20,11 @@ var Person = {
     "*" : "something"
 };
 
-console.log(Person.first_name + " " + Person.last_name);
-console.log(Person.languages.primary);
-console.log(Person.languages.secondary);
-console.log(Person[""]);
-console.log(Person["*"]);
+console.log(Person.first_name + " " + Person.last_name); // Mesut Çifci
+console.log(Person.languages.primary);                   // java
+console.log(Person.languages.secondary);                 // python
+console.log(Person[""]);                                 // empty string
+console.log(Person["*"]);                                // something
 
 
 

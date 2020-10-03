@@ -1,3 +1,5 @@
+"use strict"
+
 outerloop: 
 for(;;) {
     let j = 1;
@@ -10,7 +12,6 @@ for(;;) {
         }
     }
 }
-
 
 console.log("-------------------------------")
 
@@ -42,13 +43,11 @@ for(let i in Person) {
     // Person.name = Mesut, Person.age = 231, Person.foo = foo
 }
 
-/*
 
 console.log("-------------------------------");
 
+/*
 for(let i of Person) {
     console.log(`Person.${i} = ${Person[i]}`);  // TypeError: Person is not iterable
 }
 */
-
-console.log("-------------------------------");

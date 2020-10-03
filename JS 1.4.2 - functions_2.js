@@ -1,3 +1,5 @@
+"use strict"
+
 // Named function expressions
 
 let sayHi = function func(who) {
@@ -33,7 +35,7 @@ let sum = new Function('a', 'b', 'return a + b');
 console.log(sum(1, 2)); // 3
 
 let printName = new Function('console.log("My name is Mesut")');
-printName(); // M name is Mesut
+printName(); // My name is Mesut
 
 
 console.log("\n");
@@ -157,15 +159,15 @@ let module = {
 };
 
 let var1 = module.getX;
-var1(); // undefined
+// var1();  undefined(in non-strick mode) / Type error(in strick mode)
 var1.apply(module); // 81
 
 
 let var2 = module.getX;
 var2.call(module);  // 81
 
-var1(); // undefined
-var2(); // undefined
+// var1(); // undefined(in non-strick mode) / Type error(in strick mode)
+// var2(); // undefined(in non-strick mode) / Type error(in strick mode)
 
 let var3 = module.getX.bind(module);
 var3(); // 81

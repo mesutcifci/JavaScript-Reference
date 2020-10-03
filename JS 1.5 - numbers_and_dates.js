@@ -1,3 +1,5 @@
+"use strict"
+
 /* e */
 
 let number = 10000;

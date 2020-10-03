@@ -1,14 +1,17 @@
+"use strict"
+
 /* delete */
 
-x = 1; // implicitly  creates window.x
+window.x = 1; 
 var y = 2;
 var myObj = { a: 3 };
 
 
-delete x;       // returns true (can delete if created implicitly)
-delete y;       // returns false (cannot delete if declared with var)
-delete Math.PI; // returns false (cannot delete non-configurable properties)
-delete myObj.h; // returns true (can delete user-defined properties)
+delete window.x; // returns true (can delete if created implicitly)
+delete myObj.h;  // returns true (can delete user-defined properties)
+// delete y;     // gives error in strict mode
+// delete Math.PI;  // gives error in strict mode
+
 
 let numbers = [0, 1, 2, 3];
 console.log(numbers.length); // result 4

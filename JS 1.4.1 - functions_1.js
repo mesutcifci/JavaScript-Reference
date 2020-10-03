@@ -1,10 +1,12 @@
+"use strict"
+
 /* named function */
 
 function myFunction(value) {
     return value * 5;
 }
 
-console.log(myFunction(10));
+console.log(myFunction(10)); // 50
 
 /* anonymous function */
 
@@ -13,7 +15,7 @@ let square = function (value) {
 };
 
 
-console.log(square(4));
+console.log(square(4)); // 16
 
 console.log("-------------------------");
 
@@ -36,7 +38,7 @@ console.log("-------------------------");
 
 /* function declaration can be hoisted(appear below the call in the code) */
 
-console.log(sayMyName("Mesut"));
+console.log(sayMyName("Mesut")); // Mesut
 function sayMyName(name) { return name; }
 
 /* 
@@ -61,12 +63,12 @@ function outer(x) {
     return inner;
 }
 
-func1 = outer(2);
-result1 = func1(3); // like this outer(2)(3)
-console.log(`result1 = ${result1}`);
+let func1 = outer(2);
+let result1 = func1(3); // like this outer(2)(3)
+console.log(`result 1 = ${result1}`); // result 1 = 5
 
-result2 = outer(2)(3);
-console.log(`result2 = ${result2}`);
+let result2 = outer(2)(3);
+console.log(`result 2 = ${result2}`); // result 2 = 5
 
 function A(x) {
     function B(y) {
@@ -77,7 +79,7 @@ function A(x) {
     }
     return B;
 }
-console.log(A(1)(1)(1));
+A(1)(1)(1); // 3
 
 console.log("-------------------------");
 
@@ -125,7 +127,7 @@ let age = prompt("How old are you?", 18);
 
 let hello;
 let text = "default";
-console.log("Before if block. text = " + text)
+console.log("Before if block. text = " + text)  // Before if block. text = default
 if (age < 18) {
 
     hello = function () {
@@ -141,8 +143,8 @@ if (age < 18) {
     text = "age >= 18";
 }
 
-console.log("After if block. text  = " + text);
-hello();
+console.log("After if block. text  = " + text); // After if block. text  = age >= 18
+hello(); // Heeellloooo!
 
 console.log("-------------------------");
 
@@ -159,7 +161,7 @@ let subtract = function (x, y) {
 }
 
 // Type 3 - Arrow function
-let divide = (x,y) => x / y;
+let divide = (x, y) => x / y;
 let sqr = x => x * x;
 let something = () => console.log("something");
 let printAndReturn = (x, y) => {

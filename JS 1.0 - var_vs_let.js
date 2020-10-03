@@ -1,5 +1,7 @@
+"use strict"
+
 if (true) {
-    x = 10;
+    window.x = 10;
     var y = 20;
     let z = 30;
 }
@@ -8,8 +10,8 @@ console.log(x); // result = 10
 console.log(y); // result = 20
 // console.log(z); // ReferenceError: z is not defined
 
-num1 = 1;
-num1 = 10;      // OK
+window.num1 = 1;
+window.num1 = 10;  // OK
 
 var num2 = 2;
 var num2 = 20; // OK
