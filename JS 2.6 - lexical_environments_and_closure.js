@@ -38,7 +38,7 @@ console.log("\n");
 
 function getCounter_2() {
     let counter = 0;
-    function print(){
+    function print() {
         console.log(counter++);
     }
     return print;
@@ -56,5 +56,41 @@ let count_2 = getCounter_2(); // variable count refer to unction print
 count_2(); // 0
 count_2(); // 1
 count_2(); // 2 // counter did not resetting because it is still hanging around inside a count_2
+console.log("\n");
 
+/* ------------------------------------------------------------------------------------ */
 
+function outside(x) {
+    function inside(y) {
+        return x + y;
+    }
+    return inside;
+}
+fn_inside = outside(3); // Think of it like: give me a function that adds 3 to whatever you give
+// it
+let result1 = fn_inside(5); // returns 8
+
+let result2 = outside(3)(5); // returns 8
+console.log("\n");
+
+/* ------------------------------------------------------------------------------------ */
+
+var x = 10;
+
+function createFunction1() {
+    var x = 20;
+    return new Function('return x;'); // this |x| refers global |x|
+}
+
+function createFunction2() {
+    var x = 20;
+    function f() {
+        return x; // this |x| refers local |x| above
+    }
+    return f;
+}
+
+var f1 = createFunction1();
+console.log(f1());          // 10
+var f2 = createFunction2();
+console.log(f2());          // 20
