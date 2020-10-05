@@ -172,9 +172,7 @@ var2.call(module);  // 81
 let var3 = module.getX.bind(module);
 var3(); // 81
 
-
 console.log("\n");
-
 
 function getCount(a, b, c) {
     console.log(this.count + a + b + c);
@@ -187,8 +185,6 @@ getCount.apply(obj1, [100, 100, 100]);       // 310
 sum = getCount.bind(obj1, 1000, 1000, 1000); 
 sum();                                       // 3010
 
-
-
 console.log("\n");
 
 
@@ -198,6 +194,28 @@ let divide = function (a, b) {
 
 let divide2 = divide.bind(null, 10);
 console.log(divide2(2)); // 5
+
+console.log("\n");
+
+function Product(name, price) {
+    this.name = name;
+    this.price = price;
+}
+
+function Food(name, price) {
+    Product.call(this, name, price);
+    this.category = 'food';
+}
+
+/*
+name = döner
+price = 10
+category = food
+*/
+let kebap = new Food('döner', 10);
+for(let key in kebap) {
+    console.log(`${key} = ${kebap[key]}`);
+}
 
 
 console.log("\n");

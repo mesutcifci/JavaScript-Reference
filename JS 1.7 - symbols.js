@@ -1,3 +1,5 @@
+"use strict"
+
 /* Symbols */
 
 const myFirstSymbol = Symbol();
@@ -40,11 +42,11 @@ let myObj = {
 
 console.log(myObj); // Object { dummy: "dummy text", Symbol(): "this is symbol" }
 
-console.log(Object.getOwnPropertyNames(myObj)); // dummy
-console.log(Object.keys(myObj)); // dummy
+console.log(Object.getOwnPropertyNames(myObj)); // Array [ "dummy" ]
+console.log(Object.keys(myObj)); // Array [ "dummy" ]
 
-console.log(Object.getOwnPropertySymbols(myObj)); // Symbol()
-console.log(Reflect.ownKeys(myObj)); // dummy, Symbol()
+console.log(Object.getOwnPropertySymbols(myObj)); // Array [ Symbol() ]
+console.log(Reflect.ownKeys(myObj)); // Array [ "dummy", Symbol() ]
 
 
 
@@ -54,11 +56,12 @@ const classRoom = {
     Gilbert: { grade: 58, gender: 'male' }, // owerwrite
 };
 
-console.log(classRoom.Gilbert); // the second gilbert property is written
-for (person in classRoom) {
-    console.log(`classRoom.${person} = ${classRoom[person].grade}`);
-}
+// the second gilbert property is written
+console.log(classRoom.Gilbert); // Object { grade: 58, gender: "male" }
 
+for (let person in classRoom) {
+    console.log(`classRoom.${person} = ${classRoom[person]}`);
+}
 // result =  classRoom.Mia = 50, classRoom.Gilbert = 58
 
 const otherClassRomm = {
@@ -68,7 +71,7 @@ const otherClassRomm = {
 };
 
 let persons =  Object.getOwnPropertySymbols(otherClassRomm);
-for(i of persons) {
+for(let i of persons) {
     console.log(i);
 }
 

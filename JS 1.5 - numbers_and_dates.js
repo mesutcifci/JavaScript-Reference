@@ -4,9 +4,9 @@
 
 let number = 10000;
 
-console.log(1e4 == number) // true
-console.log(2.15e3 == 2150);  // true
-console.log(4e-4 == 0.0004) // true
+console.log(1e4 == number)   // true
+console.log(2.15e3 == 2150); // true
+console.log(4e-4 == 0.0004)  // true
 
 
 console.log("\n");
@@ -116,7 +116,7 @@ console.log(n.toPrecision(2)); // 1.2e + 2
 console.log("\n");
 
 n = 1234;
-console.log(n.toPrecision(3)); // 1.2e + 3  
+console.log(n.toPrecision(3)); // 1.23e + 3  
 console.log("\n");
 
 n = 123.45;
@@ -141,27 +141,27 @@ console.log("***************************************************");
 console.log("\n");
 
 
-console.log(Math.abs(-555)); // 555
+console.log(Math.abs(-555));  // 555
 console.log(Math.pow(5, 3));  // 125
 
 console.log(Math.floor(5.4)); // 5
 console.log(Math.floor(5.7)); // 5
 
-console.log(Math.ceil(5.4)); // 6
-console.log(Math.ceil(5.7)); // 6
+console.log(Math.ceil(5.4));  // 6
+console.log(Math.ceil(5.7));  // 6
 
-console.log(Math.round(5.4)); // 5
-console.log(Math.round(5.7)); // 6
+console.log(Math.round(5.4));  // 5
+console.log(Math.round(5.7));  // 6
 
-console.log(Math.trunc(785.4758)); // 785
+console.log(Math.trunc(785.4758));   // 785
 
 console.log(Math.min(1, 5, -7, 21)); // -7
 console.log(Math.max(1, 5, -7, 21)); // 21
 
 console.log(Math.random()); // returns a number  between 0 - 1 
 
-console.log(Math.sqrt(36)); // 6
-console.log(Math.cbrt(512)) // 8
+console.log(Math.sqrt(36));    // 6
+console.log(Math.cbrt(512))    // 8
 console.log(Math.hypot(6, 8)); // 10
 
 
@@ -209,7 +209,7 @@ console.log(Date.parse("2020"));     // 1577836800000
 console.log(Date.parse("2020 8"));   // NaN 
 console.log("\n");
 
-let utcTime = Date.UTC(1970, 0, 1, 00, 00, 01);
+let utcTime = Date.UTC(1970, 0, 1, 0, 0, 1);
 console.log(utcTime); // 1000
 
 

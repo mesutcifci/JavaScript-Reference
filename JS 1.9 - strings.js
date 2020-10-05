@@ -1,9 +1,11 @@
+"use strict"
+
 /* deal with unicode symbols */
 
 console.log('\x41\x42\x43');       // ABC
 console.log('\u0041\u0042\u0043'); // ABC
-console.log('\uD83D\uDCA9'); // PILE OF POO (surrogate pair)
-console.log('\u{1F4A9}');    // PILE OF POO
+console.log('\uD83D\uDCA9');       // PILE OF POO (surrogate pair)
+console.log('\u{1F4A9}');          // PILE OF POO
 
 'A'.length // 1
 '𝐀'.length // 2
@@ -263,7 +265,7 @@ console.log(`str.substring(3, 1) = ${str.substring(3, 1)}`);  // oz swapped subs
 console.log("\n");
 
 console.log(`str.slice(3, 2)     = ${str.slice(3, 2)}`);       // ""
-console.log(`str.substr(3, 2)    = ${str.substr(3, 2)}`);      // i
+console.log(`str.substr(3, 2)    = ${str.substr(3, 2)}`);      // il
 console.log(`str.substring(3, 2) = ${str.substring(3, 2)}`);   // z swapped substring(2, 3)
 console.log("\n");
 
@@ -335,7 +337,7 @@ console.log("\n");
 str = 'My-cats-are-so-beautifull';
 let words = str.split("-");
 
-for (i of words) {
+for (let i of words) {
     console.log(i);
 }
 
@@ -352,7 +354,7 @@ console.log("\n");
 str = "one-two-three-four-five-six";
 words = str.split("-", 3);
 
-for (i of words) {
+for (let i of words) {
     console.log(i);
 }
 /* 

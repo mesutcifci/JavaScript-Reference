@@ -1,3 +1,5 @@
+"use strict"
+
 /* creating objects */
 
 // 1- object literals - initializer
@@ -10,7 +12,7 @@ let myHonda = {
 };
 
 let key = prompt("What do you want to know about the car?", "color");
-alert(myHonda[key]); // red if enter color
+console.log(myHonda[key]); // red if enter color
 
 console.log(myHonda["can speed"]); // true
 console.log("\n");
@@ -71,8 +73,7 @@ let bag = {
     [fruit]: 'tasty' // the name of the property is taken from the variable fruit
 }
 
-alert(bag.apple) // tasty if fruit == apple
-
+console.log(bag.apple) // tasty if fruit == apple
 
 console.log("\n");
 
@@ -102,8 +103,8 @@ function displayInformation() {
 }
 
 let myCat = new Cat("gırgır", "male");
-myCat.displayInformation();
-myCat.sayMeow();
+myCat.displayInformation(); // name = gırgır, sex = male
+myCat.sayMeow();            // Meeeeoowww
 console.log("\n");
 
 // method shorthand 
@@ -116,8 +117,8 @@ let city = {
 };
 
 function externalMethod() { };
-city.longMethod();
-city.shortMethod();
+city.longMethod();  // .......
+city.shortMethod(); // .......
 
 console.log("\n");
 
@@ -142,8 +143,8 @@ function sayHi() {
 Manager.sayHi = sayHi;
 Intern.sayHi = sayHi;
 
-Manager.sayHi();
-Intern.sayHi();
+Manager.sayHi();   // Hi, my name is, Kemal
+Intern.sayHi();    // Hi, my name is, Mesut
 console.log("\n");
 
 let house = {
@@ -171,24 +172,41 @@ let obj = {
     }
 }
 
-console.log(obj.number); // null
+console.log(obj.number);    // null
 obj.setNumber = 5;
 console.log(obj.getNumber); // 5
 console.log("\n");
 
-let obj2 = {
+let obj_2 = {
     text: null
 }
 
-Object.defineProperties(obj2, {
+Object.defineProperties(obj_2, {
     "getText": { get: function () { return this.text } },
     "setText": { set: function (value) { this.text = value } },
 
 });
 
-console.log(obj2.text); // null
-obj2.setText = "abcdefg";
-console.log(obj2.getText); // abcdefg
+console.log(obj_2.text);    // null
+obj_2.setText = "abcdefg";
+console.log(obj_2.getText); // abcdefg
+
+console.log("\n");
+
+obj_2 = {
+    get name() {
+        return this._name;  // we also specify different property name
+    },
+    set name(value) {
+        if (value.length < 3) {
+            console.log("This name is too short, need at least 4 characters");
+            return;
+        } 
+       this._name = value;
+    }
+}
+
+obj_2.name = ''; // This name is too short, need at least 4 characters
 
 console.log("\n");
 
@@ -199,17 +217,18 @@ let user = {
     age: 999,
 };
 
-let admin = user; // copy the reference 
-admin.name = "elif"; // changed by the admin reference 
+let admin = user;       // copy the reference 
+admin.name = "elif";    // changed by the admin reference 
 console.log(user.name); // elif
 
 console.log(user == admin);  // true
 console.log(user === admin); // true
+console.log("\n");
 
 let a = {};
 let b = {};
 
-console.log(a == b); // false
+console.log(a == b);  // false
 console.log(a === b); // false
 
 let c = Object.create(user);
@@ -259,7 +278,7 @@ console.log(clone_4.bio === hero.bio); // true
 console.log("\n");
 
 console.log(hero.bio); // Object { power: "infinity", hair: "0" }
-clone_4.bio.hair  = '100';
+clone_4.bio.hair = '100';
 clone_4.bio.power = 0;
 console.log(hero.bio); // Object { power: 0, hair: "100" }
 console.log("\n");
