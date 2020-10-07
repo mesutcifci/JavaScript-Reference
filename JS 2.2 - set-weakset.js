@@ -1,3 +1,5 @@
+"use strict"
+
 /*  Creating Set*/
 
 let set_1 = new Set();
@@ -62,7 +64,11 @@ console.log(bool); // true
 console.log("\n"); 
 
 console.log(set_1); // Set(3) [ 1, 2, 3 ]
+console.log("\n");
 
+set_1.delete(3);
+console.log(set_1); // Set [ 1, 2 ]
+console.log("\n");
 
 set_1.clear();
 console.log(set_1); // Set []
@@ -92,13 +98,13 @@ console.log("***************************************************");
 console.log("\n");
 
 
-set_1 = new Set([1, 2, 3]);
+set_1 = new Set([11, 22, 33]);
 set_1.add('foo');
 
 let iterator_1 = set_1.entries();
-console.log(iterator_1.next().value); // Array [ 1, 1 ]
-console.log(iterator_1.next().value); // Array [ 2, 2 ]
-console.log(iterator_1.next().value); // Array [ 3, 3 ]
+console.log(iterator_1.next().value); // Array [ 11, 11 ]
+console.log(iterator_1.next().value); // Array [ 22, 22 ]
+console.log(iterator_1.next().value); // Array [ 33, 33 ]
 console.log(iterator_1.next().value); // Array [ foo, foo ]
 console.log(iterator_1.next().value); // undefined
 

@@ -1,3 +1,5 @@
+"use strict"
+
 // seTimeout 
 
 function helloWorld() {

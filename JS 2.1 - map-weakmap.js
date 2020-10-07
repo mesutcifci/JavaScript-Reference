@@ -1,3 +1,5 @@
+"use strict"
+
 /* Creating Map*/
 new Map();
 new Map([['Key', 'Value']]);
@@ -54,7 +56,7 @@ console.log(wrongMap)  // Map { bla: 'blaa', bla2: 'blaaa2' }
 console.log("\n");
 
 
-let map = new Map([[1, 2], [3, 4]]);
+let map = new Map([['one', 1], ['two', 2]]);
 console.log(map instanceof Object); //true
 
 let obj_3 = new Object();
@@ -64,7 +66,7 @@ console.log("-----------------------------------------------------------------")
 /* for of */
 
 for (let i of map) {
-    console.log(i);  // Array [ 1, 2 ], Array [ 3, 4 ]
+    console.log(i);  // Array [ one, 1 ], Array [ two, 2 ]
 }
 
 console.log("-----------------------------------------------------------------");
@@ -267,7 +269,7 @@ for (let i of weakmap) {  // TypeError: weakmap_1 is not iterable
 }
 */
 
-john = { name: "John" };
+let john = { name: "John" };
 
 map = new Map();
 map.set(john, "AAA");
@@ -276,7 +278,7 @@ weakmap = new WeakMap();
 weakmap.set(john, "AAA");
 
 
-delete john;
+// delete john; // (this line gives error in scrict mode)
 // john is removed from memory but still available in map. 
 // Also john is removed in weakmap
 

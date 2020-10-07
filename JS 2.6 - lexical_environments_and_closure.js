@@ -1,3 +1,5 @@
+"use strict"
+
 // Global Lexical Environments Object
 // LeO = Lexical environments object
 
@@ -46,12 +48,9 @@ function getCounter_2() {
 
 getCounter_2(); // nothing prints
 
-
-console.log(getCounter_2()); // function print()
-console.log(getCounter_2()); // function print()
 console.log(getCounter_2()); // function print()
 
-let count_2 = getCounter_2(); // variable count refer to unction print
+let count_2 = getCounter_2(); // variable count refer to function print
 
 count_2(); // 0
 count_2(); // 1
@@ -66,7 +65,7 @@ function outside(x) {
     }
     return inside;
 }
-fn_inside = outside(3); // Think of it like: give me a function that adds 3 to whatever you give
+let fn_inside = outside(3); // Think of it like: give me a function that adds 3 to whatever you give
 // it
 let result1 = fn_inside(5); // returns 8
 

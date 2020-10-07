@@ -1,3 +1,5 @@
+"use strict"
+
 function User(name, age, job, cat, favouriteColors) {
     this.name = name;
     this.age = age;

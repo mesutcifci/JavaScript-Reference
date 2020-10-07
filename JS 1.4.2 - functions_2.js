@@ -19,6 +19,8 @@ let sayBye = function (who) {
     }
 }
 
+// func(); ReferenceError: func is not defined
+
 let welcome = sayHi;
 sayHi = null;
 welcome(); // Hello Guest
@@ -144,11 +146,13 @@ let person = {
 }
 
 
+
 // first name = elif
 // last name = bat
 printInfo.apply(person); // 'apply' calls printInfo immediately
 printInfo.call(person);  // 'call' calls printInfo immediately
 let bound = printInfo.bind(person);  // 'bind' returns instead of calling printinfo
+bound();
 
 console.log("\n");
 
@@ -158,16 +162,18 @@ let module = {
     getX: function () { console.log(this.x); }
 };
 
+module.getX(); // 81
+
 let var1 = module.getX;
-// var1();  undefined(in non-strick mode) / Type error(in strick mode)
+// var1();  undefined(in non-strict mode) / Type error(in strick mode)
 var1.apply(module); // 81
 
 
 let var2 = module.getX;
 var2.call(module);  // 81
 
-// var1(); // undefined(in non-strick mode) / Type error(in strick mode)
-// var2(); // undefined(in non-strick mode) / Type error(in strick mode)
+// var1(); // undefined(in non-strict mode) / Type error(in strict mode)
+// var2(); // undefined(in non-strict mode) / Type error(in strict mode)
 
 let var3 = module.getX.bind(module);
 var3(); // 81
@@ -180,6 +186,7 @@ function getCount(a, b, c) {
 
 var obj1 = {count: 10};
 
+// getCount(obj1, 10, 10, 10);               // TypeError: this is undefined
 getCount.call(obj1, 10, 10, 10);             // 40
 getCount.apply(obj1, [100, 100, 100]);       // 310
 sum = getCount.bind(obj1, 1000, 1000, 1000); 
@@ -189,11 +196,11 @@ console.log("\n");
 
 
 let divide = function (a, b) {
-    return a / b;
+    return b / a;
 };
 
-let divide2 = divide.bind(null, 10);
-console.log(divide2(2)); // 5
+let divide2 = divide.bind(null, 2);
+console.log(divide2(10)); // 5
 
 console.log("\n");
 

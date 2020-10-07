@@ -24,7 +24,7 @@ console.log(255..toString(36));   // 73
 
 console.log("\n");
 console.log("***************************************************");
-console.log("*                   parseFloat                    *");
+console.log("*               parseFloat/Int                    *");
 console.log("***************************************************");
 console.log("\n");
 
@@ -108,6 +108,7 @@ console.log("\n");
 
 n = 12;
 console.log(n.toPrecision(1)); // 1e+1
+console.log(n); // 12
 console.log("\n");
 
 n = 123;
@@ -205,6 +206,7 @@ let theTime = Date.parse("01 jan 1970 00:00:01 GMT");
 console.log(theTime);                // 1000
 console.log(Date.parse(2020));       // 1577836800000
 console.log(Date.parse(2020, 8));    // 1577836800000
+console.log(Date.parse(2040));       // 2208988800000
 console.log(Date.parse("2020"));     // 1577836800000
 console.log(Date.parse("2020 8"));   // NaN 
 console.log("\n");

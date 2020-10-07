@@ -1,3 +1,5 @@
+"use strict"
+
 console.log("-----------------------------------------------------------------");
 
 let array_1 = new Array();
@@ -60,7 +62,7 @@ console.log(animals.length) // 56
 
 console.log("\n");
 
-arr = [1, 2, 3, 4, 5];
+let arr = [1, 2, 3, 4, 5];
 
 arr.length = 2;   // truncate to 2 elements
 console.log(arr); // [1, 2]
@@ -106,7 +108,7 @@ console.log(Array.of(1, 2, 3));   // Array(3) [ 1, 2, 3 ]
 console.log(Array.of(undefined)); // Array [ undefined ]
 
 console.log("\n");
-console.log(Array.isArray([]));
+console.log(Array.isArray([]));          // true
 console.log(Array.isArray([1, 2, 3]));   // true
 console.log(Array.isArray(new Array())); // true
 console.log(Array.isArray('foobar'));    // false
@@ -427,12 +429,12 @@ array_1 = ['a', 'b', , 'c'];
 let iterator_1 = array_1.keys();
 let iterator_2 = array_1.values()
 
-for (key of iterator_1) {
+for (let key of iterator_1) {
   console.log(key); // 0, 1, 2, 3
 }
 
 console.log("\n");
-for (value of iterator_2) {
+for (let value of iterator_2) {
   console.log(value); // a, b, undefined c
 }
 
@@ -763,7 +765,7 @@ console.log("***************************************************");
 console.log("\n");
 
 
-array1 = [1, 2, 'a', '1a'];
+let array1 = [1, 2, 'a', '1a'];
 console.log(array1.toString());  // 1,2,a,1a
 
 let prices = ['￥7', 500, 8123, 12];

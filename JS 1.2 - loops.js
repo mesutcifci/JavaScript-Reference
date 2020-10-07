@@ -23,6 +23,10 @@ for(let i in colors) {
     console.log(i); // 0 1 2 foo
 }
 
+for(let i in colors) {
+    console.log(colors[i]); // red green blue hi 
+}
+
 console.log("-------------------------------")
 
 for(let i of colors) {

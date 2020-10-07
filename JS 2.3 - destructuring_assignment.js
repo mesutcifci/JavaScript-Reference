@@ -1,16 +1,20 @@
-let arr = ['kemal', 'ayhan'];
+"use strict"
+
+let arr = ['kemal', 'ayhan', 'ceo'];
 
 //shorter way to write :
 //let firstName = arr[0];
 //let surname = arr[1];
 let [firstName, surname] = arr; // destructuring assigment 
-[first, second, third] = "123";
+
+// [first, second, third] = "123"; // gives error in strict mode
+
 let [one, two, three] = new Set([1, 2, 3]);
 let user = {};
-[user.name, user.surname] = arr;
+//[user.name, user.surname] = arr;
 
 console.log(firstName, surname);      // kemal ayhan
-console.log(first, second, third);    // 1 2 3
+// console.log(first, second, third); // 1 2 3
 console.log(one, two, three);         // 1 2 3 
 console.log(user.name, user.surname); // kemal ayhan
 
@@ -43,9 +47,9 @@ console.log(`name_1 = ${name_1},  name_2 = ${name_2}`);  // name_1 = elif,  name
 
 console.log("\n");
 
-[name = "Guest", surname = "Anonymous"] = ["Julius"];
-console.log(name);     // julius
-console.log(surname);  // Anonymous
+[name_1 = "Guest", name_2 = "Anonymous"] = ["Julius"];
+console.log(name_1);     // julius
+console.log(name_2);  // Anonymous
 
 /* ------------------------------------------------------------------------------------ */
 
@@ -95,7 +99,7 @@ console.log(t); // Menu
 
 console.log("\n");
 
-obj = {
+let obj = {
     prop_1: 'prop 1',
     prop_2: 'prop_2',
     prop_3: 'prop 3',
@@ -120,7 +124,7 @@ obj = {
 };
 
 // {a, b} = obj; error we must use 'let'
-({ a, b } = obj); // it's OK.
+// ({ a, b } = obj); // it's OK(in non-strict mode).
 
 options = {
     size: {
@@ -131,7 +135,7 @@ options = {
     extra: true
 };
 
-
+let item1, item2;
 ({
     size: {
         width,

@@ -126,6 +126,7 @@ console.log(text.indexOf('o'));      // 4
 console.log(text.indexOf('o', 7));   // 8
 console.log("\n");
 
+console.log(text.indexOf('o', -2));  // 4
 console.log(text.indexOf('o', -44)); // 4
 console.log(text.indexOf('o', 55));  // -1
 
