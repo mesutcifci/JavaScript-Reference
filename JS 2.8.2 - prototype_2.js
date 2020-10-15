@@ -87,13 +87,26 @@ console.log("\n");
 
 function doSomething(){}
 doSomething.prototype.foo = "bar";
+
 var doSomeInstancing = new doSomething();
 doSomeInstancing.prop = "some value";
+
+// doSomeInstancing.prop:      some value
 console.log("doSomeInstancing.prop:      " + doSomeInstancing.prop);
+
+// doSomeInstancing.foo:       bar
 console.log("doSomeInstancing.foo:       " + doSomeInstancing.foo);
+
+// doSomething.prop:           undefined
 console.log("doSomething.prop:           " + doSomething.prop);
+
+// doSomething.foo:            undefined
 console.log("doSomething.foo:            " + doSomething.foo);
+
+// doSomething.prototype.prop: undefined
 console.log("doSomething.prototype.prop: " + doSomething.prototype.prop);
+
+// doSomething.prototype.foo:  bar
 console.log("doSomething.prototype.foo:  " + doSomething.prototype.foo);
 console.log("\n");
 

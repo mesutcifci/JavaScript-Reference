@@ -199,38 +199,18 @@ D.externalStaticMethod(); // class D {}
 // new D().staticMethod(); // TypeError: (new D()).staticMethod is not a function
 new D().nonStaticMethod(); // Object {  }
 
-class CoffeeMachine {
-    // ...
+/* ------------------------------------------------------------------------------------ */
 
-    constructor(power) {
-        this._power = power;
-    }
-
-    get power() {
-        return this._power;
-    }
-
-}
+// maybe examples of private properties can come here
 
 /* ------------------------------------------------------------------------------------ */
 
-
-/* ------------------------------------------------------------------------------------ */
-
-
-
-
-
-
-
-/*
 function f(phrase) {
     return class {
-      sayHi() { alert(phrase) }
+        sayHi() { alert(phrase) }
     }
-  }
+}
 
-  class Hello extends f("Hello") {}
+class Hello extends f("Hello") { }
 
-  new Hello().sayHi(); // Hello
-*/
+new Hello().sayHi(); // Hello
