@@ -9,7 +9,7 @@ let animal = {
 
 let rabbit = {
     jumps: true,
-    __proto__ : animal
+    __proto__: animal
 };
 
 let longEar = {
@@ -32,14 +32,14 @@ let printer = {
     printName() {
         console.log(this.name);
     }
-    
+
 }
 
 function User(name) {
     this.name = name;
 }
 
-User.prototype = printer;  
+User.prototype = printer;
 
 let user1 = new User('Mesut'); // user1.__proto__ = printer
 user1.printName(); // Mesut
@@ -53,7 +53,7 @@ console.log("\n")
 Test has default prototype
 Test.prototype = {constructor : Test};
 */
-function Test() {};
+function Test() { };
 console.log(Test.prototype.constructor === Test); // true
 
 let test = new Test();
@@ -73,20 +73,20 @@ console.log("\n");
 /* ------------------------------------------------------------------------------------ */
 
 let obj2 = {};
-console.log(obj2.__proto__ === Object.prototype );        // true
+console.log(obj2.__proto__ === Object.prototype);        // true
 console.log(obj2.toString === Object.prototype.toString); // true
 console.log("\n");
 
 /* ------------------------------------------------------------------------------------ */
 
 function A() {
-    this.printer = function() {
+    this.printer = function () {
         console.log("A");
     }
 }
 
 function B() {
-    this.printer = function() {
+    this.printer = function () {
         console.log("B");
     }
 }
@@ -105,11 +105,11 @@ let person = {
 }
 
 // create new object with person as a prototype
-let mesut = Object.create(person); 
+let mesut = Object.create(person);
 console.log(Object.getPrototypeOf(mesut) === person); // true;
 
 let elif = {};
-Object.setPrototypeOf(elif,person);
+Object.setPrototypeOf(elif, person);
 console.log(Object.getPrototypeOf(elif) === person); // true;
 console.log("\n");
 
@@ -117,24 +117,28 @@ console.log("\n");
 
 function City(name) {
     this.name = name;
+    this.internalFunction = function () {
+        console.log("internal function executed")
+    }
 }
 
 let city1 = new City('Ankara');
 
-City.func1 = function() {
+City.func1 = function () {
     console.log('func1 executed');
 }
 
-City.prototype.func2 = function() {
+City.prototype.func2 = function () {
     console.log('func2 executed');
 }
 
 City.func1();       // func1 executed
 // City.func2();    // TypeError: City.func2 is not a function
-console.log("\n");  
+console.log("\n");
 
 // city1.func1(); // city1.func1 is not a function
 city1.func2();    // func2 executed
+city1.internalFunction(); // internal function executed
 city1.population = 10000000;
 console.log("\n");
 
@@ -143,13 +147,13 @@ let city2 = Object.create(city1);
 
 /*​
 * constructor: function City(name)
-​* func2: function func2()
-​* <prototype>: Object { … }
+ * func2: function func2()
+ * <prototype>: Object { … }
 */
 console.log(city1.__proto__);
-console.log("\n")
 
 /*
+* internalFunction: function internalFunction()
 * name: "Ankara"
 * population: 10000000
 * <prototype>: Object { func2: func2(), … }

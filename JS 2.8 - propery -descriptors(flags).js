@@ -62,7 +62,7 @@ Object.defineProperty(obj_2, 'name', {
 console.log(obj_2.name); // Minik
 
 
-// prints age, display info. name ignored
+// prints age, display info. name is ignored
 for (let key in obj_2) {
     console.log(key);
 }

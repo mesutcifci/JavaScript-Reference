@@ -8,13 +8,13 @@ let arr = ['kemal', 'ayhan', 'ceo'];
 let [firstName, surname] = arr; // destructuring assigment 
 
 // [first, second, third] = "123"; // gives error in strict mode
+// console.log(first, second, third); // 1 2 3
 
 let [one, two, three] = new Set([1, 2, 3]);
 let user = {};
-//[user.name, user.surname] = arr;
+[user.name, user.surname] = arr;
 
 console.log(firstName, surname);      // kemal ayhan
-// console.log(first, second, third); // 1 2 3
 console.log(one, two, three);         // 1 2 3 
 console.log(user.name, user.surname); // kemal ayhan
 
@@ -136,6 +136,7 @@ options = {
 };
 
 let item1, item2;
+
 ({
     size: {
         width,

@@ -105,13 +105,10 @@ console.log(merged.get(1)) // uno
 console.log(merged.get(2)) // dos
 console.log(merged.get(3)) // three
 
-console.log("-----------------------------------------------------------------");
-
-
 
 console.log("\n");
 console.log("***************************************************");
-console.log("*                   size                        *");
+console.log("*                     size                        *");
 console.log("***************************************************");
 console.log("\n");
 
@@ -140,9 +137,9 @@ console.log(map); // Map { fruit → "apple", animal → "cat" }
 map.set('person', 'mesut')
     .set('city', 'Ankara');
 
-console.log(map); // Map(4) { fruit → "apple", animal → "cat", person → "mesut", city → "Ankara" }
+// Map(4) { fruit → "apple", animal → "cat", person → "mesut", city → "Ankara" }
+console.log(map);
 console.log("\n");
-
 
 console.log(map.get('person')); // mesut
 console.log(map.get(0));        // undefined
@@ -260,7 +257,9 @@ let weakmap = new WeakMap();
 weakmap.set(obj, 'obj');
 console.log(weakmap); // WeakMap { {…} → "obj" }
 console.log("\n");
-// weakmap.set('key', 'value'); TypeError: WeakMap key must be an object, got the string "key"
+
+// TypeError: WeakMap key must be an object, got the string "key"
+// weakmap.set('key', 'value'); 
 // only objects are allowed because primitive values are never garbage-collected
 
 /*

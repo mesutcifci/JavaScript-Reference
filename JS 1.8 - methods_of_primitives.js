@@ -1,6 +1,5 @@
 /* Note: gives error in strict mode */
 
-
 let text = "hello";
 
 text.toUpperCase();

@@ -145,8 +145,6 @@ let person = {
     lastName: 'bat'
 }
 
-
-
 // first name = elif
 // last name = bat
 printInfo.apply(person); // 'apply' calls printInfo immediately

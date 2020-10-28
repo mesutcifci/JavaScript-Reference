@@ -2,7 +2,7 @@
 
 /* creating objects */
 
-// 1- object literals - initializer
+console.log("1- object literals - initializer \n");
 
 let myHonda = {
     color: "red",
@@ -47,7 +47,10 @@ myCar.owner = [object Object]
 */
 console.log("\n");
 
-// 3 - Object.create 
+console.log(myCar.owner.name);
+console.log("\n")
+
+console.log("3 - Object.create \n");
 
 let Animal = {
     type: 'Invertebrates',
@@ -62,10 +65,9 @@ animal_1.displayType(); // Invertebrates
 let animal_2 = Object.create(Animal);
 animal_2.type = "cat";
 animal_2.displayType(); // cat
-
 console.log("\n");
 
-/* Computed properties */
+console.log("Computed properties \n");
 
 let fruit = prompt("Which fruit to buy?", "apple");
 
@@ -74,19 +76,17 @@ let bag = {
 }
 
 console.log(bag.apple) // tasty if fruit == apple
-
 console.log("\n");
 
-/* Property existence test */
+console.log("Property existence test \n");
 
 let testObj = {};
 
 console.log(testObj.testProperty === undefined); // true means "no such property"
 console.log("testProperty" in testObj) // false mean testPropery  doesnt exist
-
 console.log("\n");
 
-/* Defining Methods */
+console.log("Defining Methods \n");
 
 function Cat(name, sex) {
     this.name = name;
@@ -107,7 +107,8 @@ myCat.displayInformation(); // name = gırgır, sex = male
 myCat.sayMeow();            // Meeeeoowww
 console.log("\n");
 
-// method shorthand 
+console.log(" method shorthand \n");
+
 let city = {
     // longMethod: function long() { console.log(".......") }
     // longMethod: function () { console.log(".......") }
@@ -119,10 +120,10 @@ let city = {
 function externalMethod() { console.log(".......") };
 city.longMethod();  // .......
 city.shortMethod(); // .......
-
 console.log("\n");
 
-/* this */
+/********************/
+console.log("this \n");
 
 const Manager = {
     name: "Kemal",
@@ -157,10 +158,9 @@ let house = {
 let smallHouse = house;
 house = null;
 // smallHouse.printSize(); // TypeError: house is null 
-
 console.log("\n");
 
-/* Getter And Setter */
+console.log("Getter And Setter \n");
 
 let obj = {
     number: null,
@@ -190,7 +190,6 @@ Object.defineProperties(obj_2, {
 console.log(obj_2.text);    // null
 obj_2.setText = "abcdefg";
 console.log(obj_2.getText); // abcdefg
-
 console.log("\n");
 
 obj_2 = {
@@ -201,16 +200,16 @@ obj_2 = {
         if (value.length < 3) {
             console.log("This name is too short, need at least 4 characters");
             return;
-        } 
-       this._name = value;
+        }
+        this._name = value;
     }
 }
 
-obj_2.name = ''; // This name is too short, need at least 4 characters
 
+obj_2.name = ''; // This name is too short, need at least 4 characters
 console.log("\n");
 
-/* Object copying, references */
+console.log("Object copying, references \n");
 
 let user = {
     name: 'mesmes',
@@ -236,10 +235,9 @@ let d = Object.create(user);
 
 console.log(c == d);  // false
 console.log(c === d); // false
-
 console.log("\n");
 
-// Cloning and merging, Object.assign 
+console.log("Cloning and merging, Object.assign \n");
 
 let clone = {};
 
@@ -256,10 +254,9 @@ let clone_2 = {};
 Object.assign(clone_2, user); // same as above
 
 let clone_3 = Object.assign({}, user);
-
 console.log("\n");
 
-// Nested cloning
+console.log("Nested cloning \n");
 
 let hero = {
     name: "saitama",
@@ -298,6 +295,4 @@ function SmallObject() {
 }
 
 console.log(new SmallObject().name); // this
-
-console.log("\n");
 

@@ -96,11 +96,11 @@ console.log(foo); // Array(3) [ "f", "o", "o" ]
 let nums = Array.from([1, 2, 3], x => x + x);
 console.log(nums); // Array(3) [ 2, 4, 6 ]
 
-function f() {
-  return Array.from(arguments);
+function multiply() {
+  return Array.from(arguments, x => x * x);
 }
 
-console.log(f(1, 2, 3)[1]);  // 2
+console.log(multiply(1, 2, 3)[1]);  // 4
 
 console.log("\n");
 console.log(Array.of('foo'));     // Array [ "foo" ]
@@ -127,7 +127,8 @@ let num1 = [1, 2, 3];
 let num2 = [4, 5, 6];
 let num3 = [7, 8, 9];
 numbers = num1.concat(num2, num3); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
+console.log(num1); // [1, 2, 3]
+console.log("\n");
 
 letters = ['a', 'b', 'c'];
 let alphaNumeric = letters.concat(1, [2, 3]);
@@ -167,7 +168,7 @@ console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(2, 44)); // Array(5) [ "a", "b"
 
 
 console.log("\n");
-console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(0, 1, 4)); // Array(5) [ "b", "c", "d", "d", "e" ]
+console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(0, 1, 5)); // Array(5) [ "b", "c", "d", "e", "e" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(1, 3, 2)); // Array(5) [ "a", "b", "c", "d", "e" ]
 
 
@@ -184,6 +185,9 @@ console.log("*                   fill                          *");
 console.log("***************************************************");
 console.log("\n");
 
+arr = [1, 2, 3, 4, 5, 6];
+arr.fill('A')
+console.log(arr); // [ "A", "A", "A", "A", "A", "A" ]
 
 console.log([1, 2, 3, 4, 5, 6].fill('A'));            // [ "A", "A", "A", "A", "A", "A" ]
 console.log([1, 2, 3, 4, 5, 6].fill('A', 1));         // [ 1, "A", "A", "A", "A", "A" ]
@@ -192,7 +196,6 @@ console.log([1, 2, 3, 4, 5, 6].fill('A', 1, 1));      // [ 1, 2, 3, 4, 5, 6 ]
 console.log([1, 2, 3, 4, 5, 6].fill('A', 3, 5));      // [ 1, 2, 3, "A", "A", 6 ]
 console.log([1, 2, 3, 4, 5, 6].fill('A', -3, -1));    // [ 1, 2, 3, "A", "A", 6 ]
 console.log([1, 2, 3, 4, 5, 6].fill('A', NaN, NaN));  // [ 1, 2, 3, 4, 5, 6 ]
-
 
 arr = new Array(3).fill({});  // [{}, {}, {}]
 arr[0].hi = "hi";
@@ -360,6 +363,14 @@ console.log("\n");
 console.log(array_1.map(x => x * 2));       // Array(4) [ 2, 4, 6, 8 ]
 console.log(array_1.map(x => [x * 2]));     // Array(4) [[2], [4], [6], [8]]
 console.log(array_1.map(x => [x, x + 10])); // Array(4) [[1, 11], [2, 12], [3, 13], [4, 14]]
+
+function f(x) {
+  return x * 2;
+}
+
+// array_1.flatMap(f()); // f is not a function
+array_1.flatMap(f); // Array(4) [ 2, 4, 6, 8 ]
+
 
 console.log("\n");
 console.log("***************************************************");

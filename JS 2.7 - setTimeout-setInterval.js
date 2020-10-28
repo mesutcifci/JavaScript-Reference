@@ -37,7 +37,7 @@ let counter = setInterval(() => console.log(number++), 1000);
 
 setTimeout(() => {
     clearInterval(counter);
-    console.log('counting stopped')
+    console.log('counting stopped');
 }, 6000);
 
 /* ------------------------------------------------------------------------------------ */

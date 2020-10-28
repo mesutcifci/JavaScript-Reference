@@ -21,7 +21,7 @@ console.log("\n");
 
 let letters = ['a', 'b', 'c'];
 let merged = [...numbers, ...letters];
-console.log(merged); // 1, 2, 3, "a", "b", "c"
+console.log(merged); // Array(6) [ 1, 2, 3, "a", "b", "c" ]
 console.log("\n");
 
 /* ------------------------------------------------------------------------------------ */

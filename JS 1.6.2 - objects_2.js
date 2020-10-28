@@ -6,31 +6,31 @@ console.log("*                 constructor                     *");
 console.log("***************************************************");
 console.log("\n");
 
-let o = {};
+let o1 = {};
 
 /*
-o.constructorfunction Object() {
+o1.constructorfunction Object() {
     [native code]
 }
 */
-console.log("o.constructor = " + o.constructor); // function Object()
+console.log("o1.constructor = " + o1.constructor); // function Object()
 
 /*
-o.constructorfunction Array() {
+o1.constructorfunction Array() {
     [native code]
 }
 */
-o = [];
-console.log("o.constructor = " + o.constructor); // function Array()
+o1 = [];
+console.log("o1.constructor = " + o1.constructor); // function Array()
 
 function O() { }
-o = new O();
+o1 = new O();
 
-// o.constructorfunction O() {}
-console.log("o.constructor = " + o.constructor);
+// o1.constructorfunction O() {}
+console.log("o1.constructor = " + o1.constructor);
 console.log("\n");
 
-let o2 = new o.constructor();
+let o2 = new o1.constructor();
 
 // o2.constructor = function O() { }
 console.log("o2.constructor = " + o2.constructor);
@@ -67,10 +67,20 @@ console.log(returnedTarget.e);  // 55
 console.log(returnedTarged2.e); // 55
 console.log("\n");
 
+// Deep Clone
+target = { a: { b: 1 } };
+source1 = JSON.parse(JSON.stringify(target));
+target.a.b = 55;
+
+console.log(target); // a: Object { b: 55 }
+console.log("\n");
+
+
+
 /* ------------------------------------------------------------------------------------ */
 
 
-let o1 = { a: 1, b: 1, c: 1 };
+o1 = { a: 1, b: 1, c: 1 };
 o2 = { b: 2, c: 2 };
 let o3 = { c: 3 };
 
@@ -80,8 +90,8 @@ console.log(obj); // { a: 1, b: 2, c: 3 }
 /* ------------------------------------------------------------------------------------ */
 
 function A(a) {
-    this.a = a,
-        this.b = 10;
+    this.a = a;
+    this.b = 10;
 }
 
 A.prototype.c = 11;
@@ -100,6 +110,13 @@ let a2 = Object.assign(a1, A);
 <prototype>: Object { c: 11, … }
 */
 console.log(a2);
+
+// a b c
+for(let property in a2) {
+    console.log(property);
+}
+console.log("\n");
+
 
 console.log("\n");
 console.log("***************************************************");
@@ -124,7 +141,6 @@ let obj3 = Object.create(obj, {
         value: 5
     }
 });
-
 
 /*
 {…}
@@ -185,7 +201,6 @@ object1 = {
     prop1: 1,
     prop2: 2,
 }
-
 
 let descriptors = Object.getOwnPropertyDescriptor(object1, 'prop1');
 
@@ -268,6 +283,8 @@ let entries = new Map([
 
 obj = Object.fromEntries(entries);
 console.log(obj); // Object { foo: "bar", bool: true }
+console.log(new Map(Object.entries(obj))); // Map { foo → "bar", bool → true }
+console.log("\n");
 
 obj = Object.fromEntries([[0, 'red'], [1, 'green'], [2, 'blue']]);
 console.log(obj); // Object { 0: "red", 1: "green", 2: "blue" }
@@ -490,23 +507,26 @@ function Dog(name, breed, color, sex) {
     this.sex = sex;
 }
 let theDog = new Dog('Gabby', 'Lab', 'chocolate', 'female');
+console.log(theDog + ""); // [object Object]
 
 Dog.prototype.toString = function () {
     return `Dog ${this.name} is a ${this.sex} ${this.color} ${this.breed}`;
 }
 
 // Dog Gabby is a female chocolate Lab
-console.log(theDog.toString());
+console.log(theDog + "");
 
 console.log("\n");
 console.log("***************************************************");
-console.log("*                 valueOf                        *");
+console.log("*                    valueOf                      *");
 console.log("***************************************************");
 console.log("\n");
 
 function MyNumberType(n) {
     this.number = n;
 }
+
+console.log(object1 + 3); // [object Object]3
 
 MyNumberType.prototype.valueOf = function () {
     return this.number;

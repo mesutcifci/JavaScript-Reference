@@ -4,7 +4,7 @@
 // LeO = Lexical environments object
 
 /*
-LeO.phrase = <uninitilazed>  The JS engine knows that the variable exists but has no reference.
+LeO.phrase = <uninitilazed> The JS engine knows that the variable exists but has no reference.
 */
 let phrase;           // LeO.phrase = undefined
 phrase = 'Hello';     // LeO.phrase = "Hello" 
@@ -50,7 +50,7 @@ getCounter_2(); // nothing prints
 
 console.log(getCounter_2()); // function print()
 
-let count_2 = getCounter_2(); // variable count refer to function print
+let count_2 = getCounter_2(); // variable count_2 refer to function print
 
 count_2(); // 0
 count_2(); // 1
@@ -65,8 +65,9 @@ function outside(x) {
     }
     return inside;
 }
-let fn_inside = outside(3); // Think of it like: give me a function that adds 3 to whatever you give
-// it
+
+// Think of it like: give me a function that adds 3 to whatever you give it
+let fn_inside = outside(3); 
 let result1 = fn_inside(5); // returns 8
 
 let result2 = outside(3)(5); // returns 8

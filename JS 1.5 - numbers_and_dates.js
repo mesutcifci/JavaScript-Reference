@@ -144,22 +144,29 @@ console.log("\n");
 
 console.log(Math.abs(-555));  // 555
 console.log(Math.pow(5, 3));  // 125
+console.log("\n");
 
 console.log(Math.floor(5.4)); // 5
 console.log(Math.floor(5.7)); // 5
+console.log("\n");
 
 console.log(Math.ceil(5.4));  // 6
 console.log(Math.ceil(5.7));  // 6
+console.log("\n");
 
 console.log(Math.round(5.4));  // 5
 console.log(Math.round(5.7));  // 6
+console.log("\n");
 
 console.log(Math.trunc(785.4758));   // 785
+console.log("\n");
 
 console.log(Math.min(1, 5, -7, 21)); // -7
 console.log(Math.max(1, 5, -7, 21)); // 21
+console.log("\n");
 
 console.log(Math.random()); // returns a number  between 0 - 1 
+console.log("\n");
 
 console.log(Math.sqrt(36));    // 6
 console.log(Math.cbrt(512))    // 8
@@ -259,8 +266,10 @@ console.log("--------------------------");
 
 var dd = new Date(birthday.getMilliseconds());
 console.log(dd); // Thu Jan 01 1970 02:00:00 GMT+0200 (GMT+03:00)
+
 dd = new Date(Date.now());
 console.log(dd); // OK
+
 dd = new Date(Date.parse(2020));
 console.log(dd); // Wed Jan 01 2020 03:00:00 GMT+0300 (GMT+03:00)
 

@@ -8,7 +8,8 @@ function User(name, age, job, cat, favouriteColors) {
     this.favouriteColor = favouriteColors;
 };
 
-let user_1 = new User('mesut', 23, 'unemployed', { name: 'gırgır', race: 'sarman' }, ['black', 'red']);
+let user_1 = new User('mesut', 23, 'unemployed', { name: 'gırgır', race: 'sarman' },
+    ['black', 'red']);
 
 /*
 {
@@ -225,12 +226,12 @@ JSON.parse('{"1": 1, "2": 2, "3": {"4": 4, "5": {"6": 6}}}', (key, value) => {
 });
 
 /*
-key = 1, value = 1 
+key = 1, value = 1
 key = 2, value = 2
-key = 4, value = 4 
-key = 6, value = 6 
-key = 5, value = [object Object] 
-key = 3, value = [object Object] 
+key = 4, value = 4
+key = 6, value = 6
+key = 5, value = [object Object]
+key = 3, value = [object Object]
 key =  , value = [object Object]
 */
 
