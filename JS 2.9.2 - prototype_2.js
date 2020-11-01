@@ -1,3 +1,5 @@
+"use strict"
+
 function Person(first, last, age, gender, interest) {
     this.name = {
         first,

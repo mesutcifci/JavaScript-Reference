@@ -1,3 +1,5 @@
+"use strict"
+
 /*
 try {
     lalala; // error, variable is not defined!
