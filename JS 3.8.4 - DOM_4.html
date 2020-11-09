@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM - 4</title>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+
+    <script>
+      let divs1 = document.getElementsByTagName("div");
+      let divs2 = document.querySelectorAll("div");
+
+      console.log(divs1.length); // 2
+      console.log(divs2.length); // 2
+      console.log("\n");
+    </script>
+
+    <div></div>
+    <div></div>
+
+    <script>
+      console.log(divs1.length); // 4
+      console.log(divs2.length); // 2
+    </script>
+  </body>
+</html>
