@@ -1,0 +1,14 @@
+.box {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  color: white;
+}
+
+.redBox {
+  background-color: red;
+}
+
+.greenBox {
+    background-color: green;
+}
