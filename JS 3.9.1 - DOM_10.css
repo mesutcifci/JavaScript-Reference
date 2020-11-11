@@ -1,0 +1,26 @@
+div {
+    width: 400px;
+    height: 200px;
+    padding: 20px;
+    margin: 50px auto;
+    background: purple;
+}
+
+p {
+    width: 500px;
+    border: 5px solid darkblue;
+    position: relative;
+    left: 500px;
+}
+
+#moveUp {
+    display: none;
+    position: fixed;
+    left: 1200px;
+    bottom: 10px;
+    width: 90px;
+    height: 50px;
+    background-color: rgb(37, 21, 255);
+    color: white;
+    font-weight: 700;
+}
