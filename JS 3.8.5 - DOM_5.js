@@ -1,6 +1,6 @@
 "use strict";
 
-console.log("\n");getComputedStyle
+console.log("\n");
 console.log("***************************************************");
 console.log("*   nodeType - tagName - nodeName - setAttribute  *");
 console.log("* getAttribute  -  removeAttribute - hasAttribute *");

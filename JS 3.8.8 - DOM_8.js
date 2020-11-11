@@ -2,7 +2,7 @@
 
 console.log("\n");
 console.log("***********************************************************");
-console.log("*  getElementsByClassName - classList - className  style  *");
+console.log("*  getElementsByClassName - classList - className - style *");
 console.log("***********************************************************");
 console.log("\n");
 
