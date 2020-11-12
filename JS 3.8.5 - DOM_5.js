@@ -4,7 +4,7 @@ console.log("\n");
 console.log("***************************************************");
 console.log("*   nodeType - tagName - nodeName - setAttribute  *");
 console.log("* getAttribute  -  removeAttribute - hasAttribute *");
-console.log("*                getComputedStyle                 *");
+console.log("*     getComputedStyle - innerHTML - outerHTML    *");
 console.log("***************************************************");
 console.log("\n");
 
@@ -16,6 +16,7 @@ console.log(document.body.firstChild.tagName);  // undefined
 console.log(document.body.firstChild.nodeName); // #text
 console.log("\n");
 
+
 document.body.obj = {
     name: "my object",
     printName() {
@@ -26,6 +27,8 @@ document.body.obj = {
 console.log(document.body.obj.name); // my object
 document.body.obj.printName();       // my object
 console.log("\n");
+
+
 
 let div1 = document.getElementById("div1");
 let div2 = document.getElementById("div2");
@@ -41,6 +44,8 @@ div2.setAttribute(
     "width: 100px; height:100px; background-color:green;"
 ); // owerride
 
+
+
 // non-standart attribute
 document.body.setAttribute("custom", "custom attribute");
 console.log(document.body.getAttribute("custom")); // custom attribute
@@ -48,15 +53,54 @@ document.body.removeAttribute("custom");
 console.log(document.body.getAttribute("custom")); // null
 console.log("\n");
 
+
+
 let span1 = document.getElementById("span1");
 
 console.log(div1.style.color); // brown
 
 // <empty string> because The style property operates only on the value of the "style" attribute,
 // without any CSS cascade.
-console.log(div1.style.width); 
+console.log(div1.style.width);
 console.log(span1.style.width); // <empty string>
 console.log("\n");
 
+
+
 let computed = getComputedStyle(span1);
 console.log(computed.width); // 100px
+console.log("\n");
+
+
+
+/*
+    <div id="div1" style="color: brown;"></div>
+    <div id="div2" style="width: 100px; height:100px; background-color:green;"></div>
+    <span id="span1"></span>
+
+*/
+console.log(document.body.innerHTML);
+
+/*
+<body>
+    <div id="div1" style="color: brown;"></div>
+    <div id="div2" style="width: 100px; height:100px; background-color:green;"></div>
+    <span id="span1"></span>
+    <div id="outerDiv">
+        <div id="innerDiv1"></div>
+    </div>
+
+
+</body>
+*/
+console.log(document.body.outerHTML);
+
+// <div id="innerDiv1"></div>
+console.log(document.getElementById("outerDiv").innerHTML);
+
+/*
+    <div id="outerDiv">
+        <div id="innerDiv1"></div>
+    </div>
+*/
+console.log(document.getElementById("outerDiv").outerHTML);
