@@ -1,0 +1,32 @@
+#div1, #div2, #div3 {
+    display: inline-block;
+    position: relative;
+    background-color: darkblue;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    height: 200px;
+    width: 200px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#span1, #span2, #span3 {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    border: 2px solid white;
+    height: 100px;
+    width: 100px;
+}
+
+#p1, #p2, #p3 {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    border: 2px solid orange;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    margin: 0;
+}
