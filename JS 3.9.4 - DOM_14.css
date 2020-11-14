@@ -1,0 +1,44 @@
+.button {
+    display: block;
+    font-weight: 600;
+    min-width: 250px;
+    min-height: 50px;
+    text-align: center;
+}
+
+#frame {
+    display: inline-block;
+    border: 3px double black;
+    height: 300px;
+    width: 300px;
+    margin-top: 10px;
+    vertical-align: bottom;
+}
+
+#circle {
+    background-color: green;
+    border-radius: 50%;
+    color: white;
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.parent {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    height: 200px;
+    width: 200px; 
+    margin: 10px;
+}
+
+.child {
+    background-color: green;
+    height: 100px;
+    width: 100px;
+}
