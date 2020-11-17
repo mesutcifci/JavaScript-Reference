@@ -2,9 +2,9 @@
 
 console.log("\n");
 console.log("*******************************************************");
-console.log("* focus - blur - focusin - focusout - change - input - *");
-console.log("* focus() - blur()")
-console.log("**********************************************************");
+console.log("* focus - blur - focusin - focusout - change - input  *");
+console.log("*                 focus() - blur()                    *")
+console.log("*******************************************************");
 console.log("\n");
 
 let input1 = document.getElementById("input1");
