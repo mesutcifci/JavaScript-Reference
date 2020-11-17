@@ -8,7 +8,6 @@
 
 #input2 {
     display: block;
-    margin-top: 20px;
     margin-bottom: 20px;
 }
 
@@ -20,21 +19,22 @@
     height: auto;
 }
 
+
 #input3 {
     max-height: 25px;
 }
 
+
 #p2 {
     border: 1px solid rgb(211, 211, 211);
     width: 300px;
-    margin: 0 0 0 10px;
+    margin: 0 0 0 5px;
     min-height: 25px;
     max-height: 100px;
     overflow-y: auto;
     word-wrap: break-word;
 }
 
-
-#input4, #input5 {
+input:not(#input1):not(#input3) {
     margin-top: 20px;
-}
+} 

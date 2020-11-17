@@ -3,7 +3,7 @@
 console.log("\n");
 console.log("*******************************************************");
 console.log("* focus - blur - focusin - focusout - change - input  *");
-console.log("*                 focus() - blur()                    *")
+console.log("*               focus() - blur() - submit             *")
 console.log("*******************************************************");
 console.log("\n");
 
@@ -65,4 +65,11 @@ input4.addEventListener("copy",() => {
 
 input5.addEventListener("paste", () => {
     alert("paste event works ")
+});
+
+
+let form1 = document.forms.form1;
+
+form1.addEventListener("submit", () => {
+    alert("submit");
 });
