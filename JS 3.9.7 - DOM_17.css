@@ -1,0 +1,40 @@
+#p1 {
+    border: 2px solid;
+    width: 300px;
+    height: 300px;
+    overflow-x: auto;
+    white-space: pre-line;
+}
+
+#input2 {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+#container {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: auto;
+}
+
+#input3 {
+    max-height: 25px;
+}
+
+#p2 {
+    border: 1px solid rgb(211, 211, 211);
+    width: 300px;
+    margin: 0 0 0 10px;
+    min-height: 25px;
+    max-height: 100px;
+    overflow-y: auto;
+    word-wrap: break-word;
+}
+
+
+#input4, #input5 {
+    margin-top: 20px;
+}
