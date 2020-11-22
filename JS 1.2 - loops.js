@@ -19,18 +19,18 @@ console.log("-------------------------------")
 let colors =  ["red", "green", "blue"];
 colors.foo = "hi";
 
-for(let i in colors) {
-    console.log(i); // 0 1 2 foo
+for(let color in colors) {
+    console.log(color); // 0 1 2 foo
 }
 
-for(let i in colors) {
-    console.log(colors[i]); // red green blue hi 
+for(let color in colors) {
+    console.log(colors[color]); // red green blue hi 
 }
 
 console.log("-------------------------------")
 
-for(let i of colors) {
-    console.log(i); // red green blue
+for(let color of colors) {
+    console.log(color); // red green blue
 }
 
 console.log("-------------------------------")

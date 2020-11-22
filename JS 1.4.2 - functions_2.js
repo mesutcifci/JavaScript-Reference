@@ -1,45 +1,5 @@
 "use strict"
 
-// Named function expressions
-
-let sayHi = function func(who) {
-    if (who) {
-        console.log(` Hello ${who}`);
-    } else {
-        func('Guest') // func re-call itself
-    }
-}
-
-
-let sayBye = function (who) {
-    if (who) {
-        console.log(`Bye ${who}`);
-    } else {
-        sayBye('Guest');
-    }
-}
-
-// func(); ReferenceError: func is not defined
-
-let welcome = sayHi;
-sayHi = null;
-welcome(); // Hello Guest
-
-let bye = sayBye;
-sayBye = null;
-// bye(); // Uncaught TypeError: sayBye is not a function
-
-/* ------------------------------------------------------------------------------------ */
-
-// The "new Function" syntax
-
-let sum = new Function('a', 'b', 'return a + b');
-console.log(sum(1, 2)); // 3
-
-let printName = new Function('console.log("My name is Mesut")');
-printName(); // My name is Mesut
-
-
 console.log("\n");
 console.log("***************************************************");
 console.log("*                    length                       *");
@@ -135,7 +95,6 @@ array.push.apply(array, elements);
 console.log(array); // ["a", "b", 0, 1, 2]
 console.log("\n");
 
-
 function printInfo() {
     console.log(`first name = ${this.firstName}, last name = ${this.lastName}`);
 }
@@ -147,11 +106,11 @@ let person = {
 
 // first name = elif
 // last name = bat
-printInfo.apply(person); // 'apply' calls printInfo immediately
-printInfo.call(person);  // 'call' calls printInfo immediately
+printInfo.apply(person);             // 'apply' calls printInfo immediately
+printInfo.call(person);              // 'call'  calls printInfo immediately
+
 let bound = printInfo.bind(person);  // 'bind' returns instead of calling printinfo
 bound();
-
 console.log("\n");
 
 
@@ -163,7 +122,6 @@ let module = {
 module.getX(); // 81
 
 let var1 = module.getX;
-// var1();  undefined(in non-strict mode) / Type error(in strick mode)
 var1.apply(module); // 81
 
 
@@ -184,11 +142,11 @@ function getCount(a, b, c) {
 
 var obj1 = {count: 10};
 
-// getCount(obj1, 10, 10, 10);               // TypeError: this is undefined
-getCount.call(obj1, 10, 10, 10);             // 40
-getCount.apply(obj1, [100, 100, 100]);       // 310
-sum = getCount.bind(obj1, 1000, 1000, 1000); 
-sum();                                       // 3010
+// getCount(obj1, 10, 10, 10);                   // TypeError: this is undefined
+getCount.call(obj1, 10, 10, 10);                 // 40
+getCount.apply(obj1, [100, 100, 100]);           // 310
+let sum = getCount.bind(obj1, 1000, 1000, 1000); 
+sum();                                           // 3010
 
 console.log("\n");
 

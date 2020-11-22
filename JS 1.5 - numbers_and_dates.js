@@ -76,12 +76,12 @@ console.log(number_1.toFixed(3)); // 123.457
 console.log(number_1.toFixed(4)); // 123.4570 
 console.log("\n");
 
-number_1 = 0.123;
+number_1 = 0.126;
 console.log(number.toFixed());    // 255
 console.log(number_1.toFixed(1)); // 0.1
-console.log(number_1.toFixed(2)); // 0.12
-console.log(number_1.toFixed(3)); // 0.123
-console.log(number_1.toFixed(4)); // 0.1230
+console.log(number_1.toFixed(2)); // 0.13
+console.log(number_1.toFixed(3)); // 0.126
+console.log(number_1.toFixed(4)); // 0.1260
 
 console.log("\n");
 console.log(typeof (number_1.toFixed())); // string
@@ -260,7 +260,6 @@ console.log(theBigDay);    // Thu Jul 01 1999 00:00:00 GMT+0300 (GMT+03:00)
 console.log(sameAsBigDay); // Thu Jul 01 1999 00:00:00 GMT+0300 (GMT+03:00)
 
 console.log(theBigDay.getTime()); // 930776400000
-
 
 console.log("--------------------------");
 

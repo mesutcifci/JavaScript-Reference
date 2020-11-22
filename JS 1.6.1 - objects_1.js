@@ -47,7 +47,7 @@ myCar.owner = [object Object]
 */
 console.log("\n");
 
-console.log(myCar.owner.name);
+console.log(myCar.owner.name); // Mesut Ç
 console.log("\n")
 
 console.log("3 - Object.create \n");
@@ -188,26 +188,49 @@ Object.defineProperties(obj_2, {
 });
 
 console.log(obj_2.text);    // null
+
 obj_2.setText = "abcdefg";
 console.log(obj_2.getText); // abcdefg
+
 console.log("\n");
+
 
 obj_2 = {
     get name() {
-        return this._name;  // we also specify different property name
+        return this.name;  // we also specify different property name
     },
     set name(value) {
         if (value.length < 3) {
             console.log("This name is too short, need at least 4 characters");
             return;
         }
-        this._name = value;
+        this.name = value;
     }
 }
 
-
 obj_2.name = ''; // This name is too short, need at least 4 characters
 console.log("\n");
+
+
+function Example(value) {
+    this.value = value;
+}
+
+Object.defineProperties(Example.prototype, {
+    "getValue": {
+        get: function () { return this.value; }
+    },
+    "setValue": {
+        set: function (value) { this.value = value; }
+    }
+});
+
+let example = new Example("messs");
+console.log(example.getValue); // messs
+example.setValue = "lifff";
+console.log(example.getValue); // lifff
+console.log("\n");
+
 
 console.log("Object copying, references \n");
 

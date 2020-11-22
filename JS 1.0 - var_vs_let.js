@@ -42,9 +42,9 @@ function example() {
     window.num_8 = 8;
 }
 
-// console.log(num_6); // ReferenceError: num_6 is not defined
-// console.log(num_7); // ReferenceError: num_7 is not defined
-// console.log(num_8); // ReferenceError: num_8 is not defined
+// console.log(num_6);     // ReferenceError: num_6 is not defined
+// console.log(num_7);     // ReferenceError: num_7 is not defined
+console.log(window.num_8); // undefined
 
 function dummyFunction() {
     dummy = 'wtf'

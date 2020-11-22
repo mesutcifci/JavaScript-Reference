@@ -7,6 +7,7 @@ function myFunction(value) {
 }
 
 console.log(myFunction(10)); // 50
+console.log("\n")
 
 /* anonymous function */
 
@@ -14,8 +15,8 @@ let square = function (value) {
     return value * value
 };
 
-
 console.log(square(4)); // 16
+console.log("\n")
 
 console.log("-------------------------");
 
@@ -33,12 +34,14 @@ let multiply = function (number) { return number * 2; };
 let numbers = [10, 20, 30, 40, 50];
 
 console.log(map(multiply, numbers)); // 20 40 60 80 100
+console.log("\n")
 
 console.log("-------------------------");
 
 /* function declaration can be hoisted(appear below the call in the code) */
 
 console.log(sayMyName("Mesut")); // Mesut
+console.log("\n")
 function sayMyName(name) { return name; }
 
 /* 
@@ -63,8 +66,8 @@ function outer(x) {
     return inner;
 }
 
-let func1 = outer(2);
-let result1 = func1(3); // like this outer(2)(3)
+let function1 = outer(2);
+let result1 = function1(3);           // like this outer(2)(3)
 console.log(`result 1 = ${result1}`); // result 1 = 5
 
 let result2 = outer(2)(3);
@@ -73,13 +76,17 @@ console.log(`result 2 = ${result2}`); // result 2 = 5
 function A(x) {
     function B(y) {
         function C(z) {
-            console.log(x + y + z);
+            return x + y + z;
         }
         return C;
     }
     return B;
 }
-A(1)(1)(1); // 3
+
+console.log(A(1));       // function B(y)
+console.log(A(1)(1));    // function C(z)
+console.log(A(1)(1)(1)); // 3
+console.log("\n");
 
 console.log("-------------------------");
 
@@ -169,3 +176,42 @@ let printAndReturn = (x, y) => {
     console.log(`sum = ${sum}`);
     return sum;
 }
+
+// Named function expressions
+
+let sayHi = function func(who) {
+    if (who) {
+        console.log(` Hello ${who}`);
+    } else {
+        func('Guest') // func re-call itself
+    }
+}
+// func(); ReferenceError: func is not defined
+
+let welcome = sayHi;
+sayHi = null;
+welcome(); // Hello Guest
+
+// Unnamed function expression
+
+let sayBye = function (who) {
+    if (who) {
+        console.log(`Bye ${who}`);
+    } else {
+        sayBye('Guest');
+    }
+}
+
+let bye = sayBye;
+sayBye = null;
+// bye(); // Uncaught TypeError: sayBye is not a function
+
+/* ------------------------------------------------------------------------------------ */
+
+// The "new Function" syntax
+
+let sum = new Function('a', 'b', 'return a + b');
+console.log(sum(1, 2)); // 3
+
+let printName = new Function('console.log("My name is Mesut")');
+printName(); // My name is Mesut

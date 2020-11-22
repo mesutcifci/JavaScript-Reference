@@ -26,7 +26,7 @@ console.log("o1.constructor = " + o1.constructor); // function Array()
 function O() { }
 o1 = new O();
 
-// o1.constructorfunction O() {}
+// o1.constructor = function O() {}
 console.log("o1.constructor = " + o1.constructor);
 console.log("\n");
 
@@ -72,13 +72,12 @@ target = { a: { b: 1 } };
 source1 = JSON.parse(JSON.stringify(target));
 target.a.b = 55;
 
-console.log(target); // a: Object { b: 55 }
+console.log(target.a.b);   // 55
+console.log(source1.a.b);  // 1
 console.log("\n");
 
 
-
 /* ------------------------------------------------------------------------------------ */
-
 
 o1 = { a: 1, b: 1, c: 1 };
 o2 = { b: 2, c: 2 };
@@ -86,6 +85,7 @@ let o3 = { c: 3 };
 
 let obj = Object.assign({}, o1, o2, o3);
 console.log(obj); // { a: 1, b: 2, c: 3 }
+console.log("\n");
 
 /* ------------------------------------------------------------------------------------ */
 
@@ -101,21 +101,63 @@ Object.defineProperty(A, 'd', {
 });
 
 let a1 = new A(5);
+
+/*
+{…}
+ a: 5
+ b: 10
+<prototype>: {…}
+​​  c: 11
+​​  constructor: function A(a)​​
+    d: 20
+    ...
+  <prototype>: Object { … }
+*/
+console.log(a1);
+console.log("\n");
+
+
 let a2 = Object.assign(a1, A);
 
 /*
 {…}
  a: 5
  b: 10
-<prototype>: Object { c: 11, … }
+<prototype>: {…}
+​​  c: 11
+​​  constructor: function A(a)​​
+    d: 20
+    ...
+  <prototype>: Object { … }
 */
 console.log(a2);
+console.log("\n");
+
 
 // a b c
 for(let property in a2) {
     console.log(property);
 }
 console.log("\n");
+
+let a3 = new A(5);
+let a4 = Object.assign({}, a3);
+
+/*
+{…}
+a: 5
+b: 10
+<prototype>: {…}
+   __defineGetter__: function __defineGetter__()
+​   ...
+*/
+console.log(a4); 
+console.log("\n");
+
+// a b 
+for(let property in a4) {
+    console.log(property);
+}
 
 
 console.log("\n");
@@ -202,12 +244,12 @@ object1 = {
     prop2: 2,
 }
 
-let descriptors = Object.getOwnPropertyDescriptor(object1, 'prop1');
+let descriptor = Object.getOwnPropertyDescriptor(object1, 'prop1');
 
 // Object { value: 1, writable: true, enumerable: true, configurable: true }
-console.log(descriptors);
+console.log(descriptor);
 
-descriptors = Object.getOwnPropertyDescriptors(object1);
+let descriptors = Object.getOwnPropertyDescriptors(object1);
 
 /*
 {…}
@@ -460,12 +502,15 @@ function Baz() { }
 Bar.prototype = Object.create(Foo);
 Baz.prototype = Object.create(Bar.prototype);
 
-var baz = new Baz();
+var baz1 = new Baz();
 
-console.log(Baz.prototype.isPrototypeOf(baz)); // true
-console.log(Bar.prototype.isPrototypeOf(baz)); // true
-console.log(Foo.prototype.isPrototypeOf(baz)); // false
-console.log(Object.prototype.isPrototypeOf(baz)); // true
+console.log(Baz.prototype.isPrototypeOf(baz1));    // true
+console.log(Bar.prototype.isPrototypeOf(baz1));    // true
+console.log(Foo.prototype.isPrototypeOf(baz1));    // false
+console.log(Foo.isPrototypeOf(baz1));              // true
+console.log(Object.prototype.isPrototypeOf(baz1)); // true
+console.log("\n");
+
 
 console.log("\n");
 console.log("***************************************************");
