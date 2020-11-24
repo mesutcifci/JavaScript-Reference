@@ -21,22 +21,45 @@ console.log(number.toString(16)); // ff
 console.log(number.toString(2));  // 11111111
 console.log(255..toString(36));   // 73
 
+console.log("\n");
+console.log("***************************************************");
+console.log("*                   parseInt                      *");
+console.log("***************************************************");
+console.log("\n");
+
+
+let text_1 = "12.53aadd";
+
+console.log(Number.parseInt(text_1));  // 12
+console.log(Number.parseInt("15"));    // 15
+console.log(Number.parseInt(15));      // 15
+console.log("\n")
+
+console.log(Number.parseInt("10", 2));       // 2
+console.log(Number.parseInt("102", 2));      // 2 the number 2 is ignored 10 calculated
+console.log(Number.parseInt("10254785", 2)); // 2 same as above
+console.log(Number.parseInt("201", 2));      // NaN
+console.log("\n")
+
+let text_2 = "aadd12.53";
+console.log(Number.parseInt(text_2)); // NaN
 
 console.log("\n");
 console.log("***************************************************");
-console.log("*               parseFloat/Int                    *");
+console.log("*                   parseFloat                    *");
 console.log("***************************************************");
 console.log("\n");
 
 
 let text_1 = "12.53aadd";
 let text_2 = "aadd12.53";
-console.log(Number.parseFloat(text_1)); // 12.53
-console.log(Number.parseFloat(text_2)); // NaN
-console.log(Number.parseFloat("12.53", "aa")); //12.53
-console.log(Number.parseFloat("aa", 12.53)); // NaN
-console.log(Number.parseInt(text_1)); // 12
 
+console.log(Number.parseFloat(text_1));        // 12.53
+console.log(Number.parseFloat(text_2));        // NaN
+console.log("\n");
+
+console.log(Number.parseFloat("12.53", "aa")); // 12.53
+console.log(Number.parseFloat("aa", "12.53")); // NaN
 
 console.log("\n");
 console.log("***************************************************");
