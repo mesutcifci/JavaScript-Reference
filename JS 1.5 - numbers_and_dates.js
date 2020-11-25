@@ -71,6 +71,7 @@ console.log("\n");
 console.log(Number.isInteger(5));     // true
 console.log(Number.isInteger(5 / 2)); // false
 console.log(Number.isInteger(5.0));   // true
+console.log(Number.isInteger(5.1));   // false
 console.log(Number.isInteger("10"));  // false
 
 
@@ -100,7 +101,7 @@ console.log(number_1.toFixed(4)); // 123.4570
 console.log("\n");
 
 number_1 = 0.126;
-console.log(number.toFixed());    // 255
+console.log(number_1.toFixed());  // 0
 console.log(number_1.toFixed(1)); // 0.1
 console.log(number_1.toFixed(2)); // 0.13
 console.log(number_1.toFixed(3)); // 0.126
@@ -131,7 +132,7 @@ console.log("\n");
 
 n = 12;
 console.log(n.toPrecision(1)); // 1e+1
-console.log(n); // 12
+console.log(n);                // 12
 console.log("\n");
 
 n = 123;
@@ -144,8 +145,13 @@ console.log(n.toPrecision(3)); // 1.23e + 3
 console.log("\n");
 
 n = 123.45;
+console.log(n.toPrecision());  // 123.45
 console.log(n.toPrecision(1)); // 1e+2 
-console.log("\n");
+console.log(n.toPrecision(2)); // 1.2e+2
+console.log(n.toPrecision(3)); // 123
+console.log(n.toPrecision(4)); // 123.5
+console.log(n.toPrecision(5)); // 123.45
+console.log(n.toPrecision(6)); // 123.450
 
 n = 0.123
 console.log(n.toPrecision());  // 0.123
@@ -166,6 +172,11 @@ console.log("\n");
 
 
 console.log(Math.abs(-555));  // 555
+
+let number = Math.abs("-1478");
+console.log(typeof number);   // number
+console.log("\n");
+
 console.log(Math.pow(5, 3));  // 125
 console.log("\n");
 
@@ -233,45 +244,78 @@ console.log("\n");
 
 let theTime = Date.parse("01 jan 1970 00:00:01 GMT");
 
-console.log(theTime);                // 1000
-console.log(Date.parse(2020));       // 1577836800000
-console.log(Date.parse(2020, 8));    // 1577836800000
-console.log(Date.parse(2040));       // 2208988800000
-console.log(Date.parse("2020"));     // 1577836800000
-console.log(Date.parse("2020 8"));   // NaN 
+console.log(theTime);                 // 1000
+console.log("\n")
+
+console.log(Date.parse(2040));        // 2208988800000
+console.log("\n")
+
+console.log(Date.parse(2020));        // 1577836800000
+console.log(Date.parse(2020, 5));     // 1577836800000
+console.log(Date.parse("2020"));      // 1577836800000
+console.log("\n")
+
+console.log(Date.parse("2020-8-24"));                 // 1598227200000
+console.log(Date.parse("Aug 24 2020 00:00:00 GMT"));  // 1598227200000
+
+console.log(Date.parse("2020 8")); // NaN 
 console.log("\n");
 
 let utcTime = Date.UTC(1970, 0, 1, 0, 0, 1);
 console.log(utcTime); // 1000
+console.log("\n")
+
+console.log(Date.UTC(2005, 10, 15, 21, 57, 6));     // 1132091826000
+console.log(Date.parse("Nov 15 2005 21:57:6 "));    // 1132091826000
+console.log(Date.parse("Nov 15 2005 21:57:6 UTC")); // 1132091826000
+console.log("\n");
 
 
 console.log("\n");
 console.log("***************************************************");
-console.log("*      getFullYear  - getMonth - getDate          *")
-console.log("*       getDay - getHours - getMinutes            *");
-console.log("*        getSeconds - getMilliSeconds             *");
+console.log("*   get/setFullYear -Month - Date - Day - Hours   *")
+console.log("*         Minutes - Seconds - MilliSeconds        *");
 console.log("***************************************************");
 console.log("\n");
 
-// Also set merhods available 
 
 // let birthday = new Date("August 11, 2011 08:16:24:500"); invalid format(also valid without ms)
 // important! 0 = jan, 1 = feb etc... 
-let birthday = new Date(2011, 7, 11, 8, 16, 24, 500);
-console.log(birthday + "\n"); // Thu Aug 11 2011 08:16:24 GMT+0300 (GMT+03:00)
 
+
+let birthday = new Date();
+
+birthday.setFullYear(2011);
 console.log(birthday.getFullYear()); // 2011
+console.log("\n");
+
+birthday.setMonth(7);
 console.log(birthday.getMonth());    // 7
-
 console.log("\n");
-console.log(birthday.getDate()); // 11
-console.log(birthday.getDay());  // 4 (0 = sunday, 1 = monday etc...)
 
+birthday.setDate(11);
+console.log(birthday.getDate());     // 11
 console.log("\n");
-console.log(birthday.getHours());        // 8
-console.log(birthday.getMinutes());      // 16
-console.log(birthday.getSeconds());      // 24
+
+birthday.setHours(8);
+console.log(birthday.getHours());    // 8
+console.log("\n");
+
+birthday.setMinutes(16);
+console.log(birthday.getMinutes());  // 16
+console.log("\n");
+
+birthday.setSeconds(24);
+console.log(birthday.getSeconds());  // 24
+console.log("\n");
+
+birthday.setMilliseconds(500);
 console.log(birthday.getMilliseconds()); // 500
+console.log("\n");
+
+console.log(birthday.getDay());      // 4 (0 = sunday, 1 = monday etc...)
+console.log("\n");
+
 
 console.log("--------------------------");
 
