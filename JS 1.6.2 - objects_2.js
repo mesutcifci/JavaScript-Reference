@@ -13,27 +13,52 @@ o1.constructorfunction Object() {
     [native code]
 }
 */
-console.log("o1.constructor = " + o1.constructor); // function Object()
+console.log("o1.constructor = " + o1.constructor); 
+console.log("\n");
+
+console.log(o1.constructor);
+console.log("\n");
+
+
+o1 = [];
 
 /*
 o1.constructorfunction Array() {
     [native code]
 }
 */
-o1 = [];
-console.log("o1.constructor = " + o1.constructor); // function Array()
+console.log("o1.constructor = " + o1.constructor);
+console.log("\n");
+
+console.log(o1.constructor);  // function Array()
+console.log("\n");
+
 
 function O() { }
 o1 = new O();
 
 // o1.constructor = function O() {}
-console.log("o1.constructor = " + o1.constructor);
+console.log("o1.constructor = " + o1.constructor);  
 console.log("\n");
+
+console.log(o1.constructor);  // function O()
+console.log("\n");
+
 
 let o2 = new o1.constructor();
 
 // o2.constructor = function O() { }
-console.log("o2.constructor = " + o2.constructor);
+console.log("o2.constructor = " + o2.constructor); 
+console.log("\n");
+
+console.log(o2.constructor);  // function Object()
+console.log("\n");
+
+
+function O3() {};
+
+let o4 = new O3();
+let o5 = new o4.constructor();
 
 console.log("\n");
 console.log("***************************************************");

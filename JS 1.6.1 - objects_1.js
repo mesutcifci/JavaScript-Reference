@@ -197,18 +197,24 @@ console.log("\n");
 
 obj_2 = {
     get name() {
-        return this.name;  // we also specify different property name
+        if(this._name === undefined) {
+            this._name = "default"
+        }
+        return this._name;  
     },
     set name(value) {
         if (value.length < 3) {
             console.log("This name is too short, need at least 4 characters");
             return;
         }
-        this.name = value;
+        this._name = value;
     }
 }
 
-obj_2.name = ''; // This name is too short, need at least 4 characters
+console.log(obj_2.name)  // default
+obj_2.name = '';         // This name is too short, need at least 4 characters
+obj_2.name = "elif"     
+console.log(obj_2.name)  // elif
 console.log("\n");
 
 
