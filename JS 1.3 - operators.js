@@ -8,7 +8,7 @@ var myObj = { a: 3 };
 
 
 delete window.x;   // returns true (can delete if created implicitly)
-delete myObj.h;    // returns true (can delete user-defined properties)
+delete myObj.a;    // returns true (can delete user-defined properties)
 // delete y;       // gives error in strict mode
 // delete Math.PI; // gives error in strict mode, returns false in non strict mode
 

@@ -520,21 +520,7 @@ console.log("*                 isPrototypeOf                   *");
 console.log("***************************************************");
 console.log("\n");
 
-function Foo() { }
-function Bar() { }
-function Baz() { }
-
-Bar.prototype = Object.create(Foo);
-Baz.prototype = Object.create(Bar.prototype);
-
-var baz1 = new Baz();
-
-console.log(Baz.prototype.isPrototypeOf(baz1));    // true
-console.log(Bar.prototype.isPrototypeOf(baz1));    // true
-console.log(Foo.prototype.isPrototypeOf(baz1));    // false
-console.log(Foo.isPrototypeOf(baz1));              // true
-console.log(Object.prototype.isPrototypeOf(baz1)); // true
-console.log("\n");
+// There is some confusion here. To be updated.
 
 
 console.log("\n");
@@ -545,9 +531,48 @@ console.log("\n");
 
 obj = new Object();
 obj.prop = 'exists';
-obj.hasOwnProperty('prop');             // true
-obj.hasOwnProperty('toString');         // false
-obj.hasOwnProperty('hasOwnProperty');   // false
+obj.__proto__.prop2 = "prop2";
+
+
+console.log(obj.hasOwnProperty('prop'));            // true
+console.log(obj.hasOwnProperty('prop2'));           // false
+console.log(obj.hasOwnProperty('toString'));        // false
+console.log(obj.hasOwnProperty('hasOwnProperty'));  // false
+
+console.log("\n");
+
+
+function Test() {
+    this.prop1 = "prop1"
+}
+
+Test.prop2 = "prop2";
+Test.prototype.prop3 = "prop3"
+Object.defineProperties(Test, {
+    prop4: {
+        value: "prop4",
+        enumerable: true
+    },
+    prop5: {
+        value: "prop5"
+    }
+});
+
+console.log(Test.hasOwnProperty("prop1")); // false
+console.log(Test.hasOwnProperty("prop2")); // true
+console.log(Test.hasOwnProperty("prop3")); // false
+console.log(Test.hasOwnProperty("prop4")); // true
+console.log(Test.hasOwnProperty("prop5")); // true
+console.log("\n");
+
+let test1 = new Test();
+
+console.log(test1.hasOwnProperty("prop1")); // true
+console.log(test1.hasOwnProperty("prop2")); // false
+console.log(test1.hasOwnProperty("prop3")); // false
+console.log(test1.hasOwnProperty("prop4")); // false
+console.log(test1.hasOwnProperty("prop5")); // false
+
 
 console.log("\n");
 console.log("***************************************************");
@@ -561,8 +586,28 @@ object1 = {
 
 console.log(object1.propertyIsEnumerable('property1')); // true
 
+for(let prop in object1) {
+    console.log(prop);       // property1
+}
+
+// Object { value: "prop", writable: true, enumerable: true, configurable: true }
+console.log(Object.getOwnPropertyDescriptor(object1, "property1"));
+console.log("\n");
+
+
 object2 = Object.create(object1);
+
 console.log(object2.propertyIsEnumerable('property1')); // false
+
+for(let prop in object2) {
+    console.log(prop);     // property1
+}
+
+// undefined
+console.log(Object.getOwnPropertyDescriptor(object2, "property1"));
+
+console.log(object2.hasOwnProperty("property1")); // false
+
 
 console.log("\n");
 console.log("***************************************************");
@@ -596,12 +641,14 @@ function MyNumberType(n) {
     this.number = n;
 }
 
+object1 = new MyNumberType(4);
+
 console.log(object1 + 3); // [object Object]3
 
 MyNumberType.prototype.valueOf = function () {
     return this.number;
 };
 
-object1 = new MyNumberType(4);
+
 
 console.log(object1 + 3); // 7
