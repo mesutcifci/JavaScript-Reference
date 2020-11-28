@@ -72,13 +72,11 @@ console.log("*                   concat                        *");
 console.log("***************************************************");
 console.log("\n");
 
-let hello = "Hello";
-console.log(hello.concat(' Mesut', '. How are you?')); // Hello Mesut. How are you?
+let name = "Mesut";
+let surname = "Çifci";
 
-let greetList = ['Hello', ' ', 'Venkat', '!'];
-console.log("".concat(greetList));    // Hello, ,Venkat,!
-console.log("".concat(...greetList)); // Hello Venkat!
-
+let fullName = name.concat("-", surname); 
+console.log(fullName); // Mesut-Çifci
 
 console.log("\n");
 console.log("***************************************************")
@@ -111,6 +109,10 @@ let word = 'Fox';
 console.log(sentence.includes(word));     // true
 console.log(sentence.includes('ick', 6)); // true
 console.log(sentence.includes('ick', 7))  // false
+console.log("\n");
+
+console.log(sentence.includes('Quick'));  // false
+
 
 
 console.log("\n");
@@ -128,8 +130,9 @@ console.log("\n");
 
 console.log(text.indexOf('o', -2));  // 4
 console.log(text.indexOf('o', -44)); // 4
-console.log(text.indexOf('o', 55));  // -1
+console.log("\n")
 
+console.log(text.indexOf('o', 55));  // -1
 console.log(text.indexOf('o', 9));   // -1
 console.log(text.indexOf('O'));      // -1
 console.log("\n");
@@ -139,13 +142,14 @@ console.log(text.indexOf('', 0));   // 0
 console.log(text.indexOf('', -33)); // 0
 console.log("\n");
 
+console.log(text.indexOf('', 5));  // 5
 console.log(text.indexOf('', 11));  // 11
-console.log(text.indexOf('', 33));  // 12 (length + 1)
-console.log(text.indexOf('', 43));  // 12 (length + 1)
+console.log(text.indexOf('', 33));  // 12 (11 + 1)
+console.log(text.indexOf('', 43));  // 12 (11 + 1)
 console.log("\n");
 
-console.log('Blue Whale'.indexOf('Whale')); // 5
-console.log('Blue Whale'.indexOf('Whala')); // -1
+console.log('Blue Monkey'.indexOf('Monkey')); // 5
+console.log('Blue Monkey'.indexOf('Mankey')); // -1
 
 
 console.log("\n");
@@ -165,21 +169,21 @@ console.log('canal'.lastIndexOf('c', -11)); // 0
 console.log('canal'.lastIndexOf('n', -1));  // -1
 console.log("\n");
 
-console.log('canal'.lastIndexOf(''));       // 5
+console.log('canal'.lastIndexOf(''));       // 5 length
 console.log('canal'.lastIndexOf('', 2));    // 2
+console.log('canal'.lastIndexOf('', 5));    // 5
+console.log("\n");
+
+console.log('canal'.lastIndexOf('', 13)); // 5 length
+console.log('canal'.lastIndexOf('', 22)); // 5 length
+console.log("\n");
+
 console.log('canal'.lastIndexOf('a', 55));  // 3
+console.log("\n")
+
 console.log('canal'.lastIndexOf('a', 0));   // -1
 console.log('canal'.lastIndexOf('x'));      // -1
 console.log("\n");
-
-console.log(text.lastIndexOf(''));    // 12
-console.log(text.lastIndexOf('', 0)); // 0
-console.log(text.lastIndexOf('', 3)); // 3
-console.log("\n");
-
-console.log(text.lastIndexOf('', 11)); // 11
-console.log(text.lastIndexOf('', 13)); // 12
-console.log(text.lastIndexOf('', 22)); // 12
 
 
 
