@@ -13,7 +13,7 @@ let myHonda = {
 
 let key = prompt("What do you want to know about the car?", "color");
 console.log(myHonda[key]); // red if enter color
-
+myHonda.key
 console.log(myHonda["can speed"]); // true
 console.log("\n");
 
@@ -134,7 +134,7 @@ const Manager = {
 const Intern = {
     name: "Mesut",
     age: 26,
-    job: "Software Engineer Intern",
+    job: "CTO",
 }
 
 function sayHi() {

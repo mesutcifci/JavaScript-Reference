@@ -249,6 +249,11 @@ console.log(`str.substr(6)    = ${str.substr(6)}`);     // a
 console.log(`str.substring(6) = ${str.substring(6)}`);  // a
 console.log("\n");
 
+console.log(`str.slice(7)     = ${str.slice(7)}`);      // ""
+console.log(`str.substr(7)    = ${str.substr(7)}`);     // ""
+console.log(`str.substring(7) = ${str.substring(7)}`);  // ""
+console.log("\n");
+
 console.log(`str.slice(0, 3)     = ${str.slice(0, 3)}`);     // Moz
 console.log(`str.substr(0, 3)    = ${str.substr(0, 3)}`);    // Moz
 console.log(`str.substring(0, 3) = ${str.substring(0, 3)}`); // Moz
@@ -304,6 +309,11 @@ console.log(`str.substr(2, -3)    = ${str.substr(2, -3)}`);     // ""
 console.log(`str.substring(2, -3) = ${str.substring(2, -3)}`);  // Mo
 console.log("\n");
 
+console.log(`str.slice(-3, 1)     = ${str.slice(-3, 1)}`);     // ""
+console.log(`str.substr(-3, 1)    = ${str.substr(-3, 1)}`);    // l
+console.log(`str.substring(-3, 1) = ${str.substring(-3, 1)}`); // M
+console.log("\n");
+
 console.log(`str.slice(-1)     = ${str.slice(-1)}`);     // a
 console.log(`str.substr(-1)    = ${str.substr(-1)}`);    // a
 console.log(`str.substring(-1) = ${str.substring(-1)}`); // Mozilla
@@ -314,10 +324,7 @@ console.log(`str.substr(-3)    = ${str.substr(-3)}`);    // lla
 console.log(`str.substring(-3) = ${str.substring(-3)}`); // Mozilla
 console.log("\n");
 
-console.log(`str.slice(-3, 1)     = ${str.slice(-3, 1)}`);     // ""
-console.log(`str.substr(-3, 1)    = ${str.substr(-3, 1)}`);    // l
-console.log(`str.substring(-3, 1) = ${str.substring(-3, 1)}`); // M
-console.log("\n");
+
 
 console.log(`str.slice(-3, 3)     = ${str.slice(-3, 3)}`);     // ""
 console.log(`str.substr(-3, 3)    = ${str.substr(-3, 3)}`);    // lla
@@ -342,10 +349,6 @@ console.log("\n");
 str = 'My-cats-are-so-beautifull';
 let words = str.split("-");
 
-for (let i of words) {
-    console.log(i);
-}
-
 /*
 My
 cats
@@ -353,20 +356,25 @@ are
 so
 beautifull
  */
+for (let i of words) {
+    console.log(i);
+}
+
 console.log("\n");
 
 
 str = "one-two-three-four-five-six";
 words = str.split("-", 3);
 
-for (let i of words) {
-    console.log(i);
-}
 /* 
 one
 two
 three
 */
+for (let i of words) {
+    console.log(i);
+}
+
 
 
 console.log("\n");

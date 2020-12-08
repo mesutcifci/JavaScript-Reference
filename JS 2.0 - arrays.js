@@ -7,6 +7,7 @@ let array_2 = [];
 
 let array_3 = new Array(5);
 // array_3 = new Array(3.4); // RangeError: Invalid array length
+
 console.log(array_3.length); // 5
 console.log(array_3[3]);     // undefined
 
@@ -126,8 +127,9 @@ console.log("\n");
 let num1 = [1, 2, 3];
 let num2 = [4, 5, 6];
 let num3 = [7, 8, 9];
-numbers = num1.concat(num2, num3); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
-console.log(num1); // [1, 2, 3]
+numbers = num1.concat(num2, num3);
+console.log(numbers);   // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+console.log(num1);      // [1, 2, 3]
 console.log("\n");
 
 letters = ['a', 'b', 'c'];
@@ -153,26 +155,25 @@ console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(0));  // Array(5) [ "a", "b", "
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(1));  // Array(5) [ "a", "a", "b", "c", "d" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(2));  // Array(5) [ "a", "b", "a", "b", "c" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(44)); // Array(5) [ "a", "b", "c", "d", "e" ]
-
+console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(-3)); // Array(5) [ "a", "b", "a", "b", "c" ]
 console.log("\n")
+
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(0, 1)); // Array(5) [ "b", "c", "d", "e", "e" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(0, 2)); // Array(5) [ "c", "d", "e", "d", "e" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(0, 3)); // Array(5) [ "d", "e", "c", "d", "e" ]
-
 console.log("\n")
+
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(1, 1));  // Array(5) [ "a", "b", "c", "d", "e" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(1, 3));  // Array(5) [ "a", "d", "e", "d", "e" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(2, 4));  // Array(5) [ "a", "b", "e", "d", "e" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(3, 1));  // Array(5) [ "a", "b", "c", "b", "c" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(2, 44)); // Array(5) [ "a", "b", "c", "d", "e" ]
-
-
 console.log("\n");
-console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(0, 1, 5)); // Array(5) [ "b", "c", "d", "e", "e" ]
+
+console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(0, 1, 4)); // Array(5) [ "b", "c", "d", "d", "e" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(1, 3, 2)); // Array(5) [ "a", "b", "c", "d", "e" ]
-
-
 console.log("\n");
+
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(-1));  // Array(5) [ "a", "b", "c", "d", "a" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(-2));  // Array(5) [ "a", "b", "c", "a", "b" ]
 console.log(['a', 'b', 'c', 'd', 'e'].copyWithin(-3, -5, -4)); // Array(5) [ "a", "b", "a", "d", "e" ]
@@ -358,8 +359,9 @@ array_1 = [1, 2, 3, 4];
 console.log(array_1.flatMap(x => x * 2));       // Array(4) [ 2, 4, 6, 8 ]
 console.log(array_1.flatMap(x => [x * 2]));     // Array(4) [ 2, 4, 6, 8 ]
 console.log(array_1.flatMap(x => [x, x + 10])); // Array(8) [ 1, 11, 2, 12, 3, 13, 4, 14 ]
-
 console.log("\n");
+
+
 console.log(array_1.map(x => x * 2));       // Array(4) [ 2, 4, 6, 8 ]
 console.log(array_1.map(x => [x * 2]));     // Array(4) [[2], [4], [6], [8]]
 console.log(array_1.map(x => [x, x + 10])); // Array(4) [[1, 11], [2, 12], [3, 13], [4, 14]]
@@ -435,19 +437,25 @@ console.log("*                keys - values                    *");
 console.log("***************************************************");
 console.log("\n");
 
-
 array_1 = ['a', 'b', , 'c'];
+array_1.prop = "5";
+
 let iterator_1 = array_1.keys();
 let iterator_2 = array_1.values()
 
 for (let key of iterator_1) {
   console.log(key); // 0, 1, 2, 3
 }
-
 console.log("\n");
+
 for (let value of iterator_2) {
   console.log(value); // a, b, undefined c
 }
+console.log("\n");
+
+console.log(array_1.keys().next().value);   // 0
+console.log(array_1.values().next().value); // a
+
 
 
 console.log("\n");
@@ -462,8 +470,8 @@ array_1 = [1, 2, 3, 4];
 let push = array_1.push(5, 6, 6, 2);
 console.log(array_1); // [ 1, 2, 3, 4, 5, 6, 6, 2]
 console.log(push);    // 8 (length of array)
-
 console.log("\n");
+
 let pop = array_1.pop();
 console.log(array_1); // [ 1, 2, 3, 4, 5, 6]
 console.log(pop);     // 2
@@ -633,8 +641,9 @@ console.log("\n");
 array_1 = [1, 2, 3];
 console.log(array_1); // [1, 2, 3]
 
-array_1.reverse();
-console.log(array_1); // [3, 2, 1]
+let reversedArray = array_1.reverse();
+console.log(array_1);       // [3, 2, 1]
+console.log(reversedArray); // [3, 2, 1]
 
 
 console.log("\n");
@@ -668,12 +677,15 @@ console.log(array_1.slice(3));      // [ 3, 4, 5, 6, 7, 8, 9 ]
 console.log(array_1.slice(3, 6));   // [ 3, 4, 5 ]
 console.log(array_1.slice(4, -2));  // [ 4, 5, 6, 7 ]
 console.log(array_1.slice(-7, -1)); // [ 3, 4, 5, 6, 7, 8 ]
-
 console.log("\n")
+
 console.log(array_1.slice(33));     // []
 console.log(array_1.slice(7, 1));   // []
 console.log(array_1.slice(6, -6));  // []
 console.log(array_1.slice(-3, -7)); // []
+
+let sliced = array_1.slice(3,6); 
+console.log(sliced);  // [ 3, 4, 5 ]
 
 
 console.log("\n");
