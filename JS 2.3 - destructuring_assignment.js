@@ -5,9 +5,11 @@ let arr = ['kemal', 'ayhan', 'ceo'];
 //shorter way to write :
 //let firstName = arr[0];
 //let surname = arr[1];
+
+
 let [firstName, surname] = arr; // destructuring assigment 
 
-// [first, second, third] = "123"; // gives error in strict mode
+// [first, second, third] = "123";    // gives error in strict mode
 // console.log(first, second, third); // 1 2 3
 
 let [one, two, three] = new Set([1, 2, 3]);
@@ -47,9 +49,11 @@ console.log(`name_1 = ${name_1},  name_2 = ${name_2}`);  // name_1 = elif,  name
 
 console.log("\n");
 
+// on strict mode  julious not printed
+
 [name_1 = "Guest", name_2 = "Anonymous"] = ["Julius"];
 console.log(name_1);     // julius
-console.log(name_2);  // Anonymous
+console.log(name_2);     // Anonymous
 
 /* ------------------------------------------------------------------------------------ */
 
@@ -148,7 +152,7 @@ let item1, item2;
 
 // width = 100, height = 200, item1 = Cake, item2 = Donut
 console.log(`width = ${width}, height = ${height}, item1 = ${item1}, item2 = ${item2}, \
-title = ${title}`)
+title = ${title}`);
 
 /* ------------------------------------------------------------------------------------ */
 
@@ -162,9 +166,8 @@ user = {
     salary: '99999',
 };
 
-function showUserInfo(
-    { id = '0', fullname = 'John/Jane Doe', age = '0', gender = undefined, salary = '0' } = {}
-){
+function showUserInfo({ id = '0', fullname = 'John/Jane Doe', age = '0', gender = undefined, salary = '0' } = {} )
+{
     console.log(`id = ${id}, fullname = ${fullname}, age = ${age} \
 gender = ${gender}, salary = ${salary}`);
 };

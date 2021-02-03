@@ -111,9 +111,9 @@ console.log(iterator_1.next().value); // undefined
 console.log("\n");
 
 iterator_1 = set_1.values();
-console.log(iterator_1.next().value); // 1
-console.log(iterator_1.next().value); // 2
-console.log(iterator_1.next().value); // 3
+console.log(iterator_1.next().value); // 11
+console.log(iterator_1.next().value); // 22
+console.log(iterator_1.next().value); // 33
 console.log(iterator_1.next().value); // foo
 console.log(iterator_1.next().value); // undefined
 
@@ -170,10 +170,13 @@ has
 let fruit = { name : 'apple'};
 
 let weakset = new WeakSet();
+
 weakset.add(fruit);
+
 // weakset.add('Hello'); //  WeakSet value must be an object, got the string "Hello"
+
 console.log(weakset);
-console.log("\n");
+
 
 
 

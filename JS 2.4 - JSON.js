@@ -11,15 +11,7 @@ function User(name, age, job, cat, favouriteColors) {
 let user_1 = new User('mesut', 23, 'unemployed', { name: 'gırgır', race: 'sarman' },
     ['black', 'red']);
 
-/*
-{
-    "name":"mesut",
-    "age":23,
-    "job":"unemployed",
-    "cat":{"name":"gırgır","race":"sarman"},
-    "favouriteColor":["black","red"]
-}
-*/
+// {"name":"mesut","age":23,"job":"unemployed","cat":{"name":"gırgır","race":"sarman"},"favouriteColor":["black","red"]}
 console.log(JSON.stringify(user_1));
 console.log("\n");
 
